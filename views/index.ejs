@@ -330,7 +330,7 @@ body{
 <body>
 
   <div class="navbar" id="navbar">
-    <a href="<%= process.env.BASE_URL %>" style="margin-left: 15px;font-weight: bolder; font-size: x-large;"><h1>iToro</h1> </a>
+    <a href="/" style="margin-left: 15px;font-weight: bolder; font-size: x-large;"><h1>iToro</h1> </a>
   
   </div>
   <div class="">
@@ -341,7 +341,7 @@ body{
 
     <div class="container" id="container">
       <div class="form-container sign-up">
-        <form action="<%= process.env.BASE_URL %>/register" method="POST" id="registration-form">
+        <form action="/register" method="POST" id="registration-form">
           <h1>Sign Up</h1>
           
           <!-- <input id="phone" type="tel" name="phoneNumber" class="phone-input" required/> -->
@@ -368,7 +368,7 @@ body{
       </div>
       
         <div class="form-container sign-in">
-            <form action="<%= process.env.BASE_URL %>/login" method="POST">
+            <form action="/login" method="POST">
                 <h1>Sign In</h1>
              
                 <span>Enter your login credentials</span>

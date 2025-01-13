@@ -738,32 +738,32 @@ main .recent-orders a{
             </div>
 
             <div class="sidebar">
-                <a href="<%= process.env.BASE_URL %>/users/admin/dashboard" class="active">
+                <a href="/users/admin/dashboard" class="active">
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="<%= process.env.BASE_URL %>/users/admin/users/page/1">
+                <a href="/users/admin/users/page/1">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Users</h3>
                 </a>
-                <a href="<%= process.env.BASE_URL %>/users/admin/payments/page/1">
+                <a href="/users/admin/payments/page/1">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Payment proofs</h3>
                 </a>
-                <a href="<%= process.env.BASE_URL %>/users/admin/withdrawrequests/page/1">
+                <a href="/users/admin/withdrawrequests/page/1">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Withdraw Requests</h3>
                 </a>
 
-                <a href="<%= process.env.BASE_URL %>/logout">
+                <a href="/logout">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -852,7 +852,7 @@ main .recent-orders a{
                         <h2><%= newestUser3.name.length > 6 ? newestUser3.name.substring(0, 6) + '...' : newestUser3.name %></h2>
                         <p><%= newestUser3.createdAt %></p>
                     </div>
-                    <a href="<%= process.env.BASE_URL %>/users/admin/users/page/1">
+                    <a href="/users/admin/users/page/1">
                         <div class="user">
                             <img src="/images/plus.png">
                             <h2>More</h2>

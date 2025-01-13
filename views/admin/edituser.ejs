@@ -39,20 +39,20 @@
         
               <div class="card profile-container " style="border-radius: 15px;">
                 <div class="card-body text-center">
-                    <a href="<%= process.env.BASE_URL %>/users/admin/users/page/1"> <!-- Add a link to go back to the user's profile -->
+                    <a href="/users/admin/users/page/1"> <!-- Add a link to go back to the user's profile -->
                         <button class="btn btn-primary" style="position: absolute; top: 10px; left: 10px;">
                          Go Back
                         </button>
                     </a>
 
                     <% if (user.taskgeneration === 'unrestricted') { %>
-                      <a href="<%= process.env.BASE_URL %>/users/tasks/disable/<%= user._id %>"> <!-- Add a link to go back to the user's profile -->
+                      <a href="/users/tasks/disable/<%= user._id %>"> <!-- Add a link to go back to the user's profile -->
                         <button class="btn btn-warning" style="position: absolute; top: 10px; right: 10px;">
                          Disable tasks
                         </button>
                       </a>
                     <% } else { %>
-                      <a href="<%= process.env.BASE_URL %>/users/tasks/enable/<%= user._id %>"> <!-- Add a link to go back to the user's profile -->
+                      <a href="/users/tasks/enable/<%= user._id %>"> <!-- Add a link to go back to the user's profile -->
                         <button class="btn btn-warning" style="position: absolute; top: 10px; right: 10px;">
                          Enable tasks
                         </button>
@@ -71,14 +71,14 @@
                   <p class="text mb-4">
                    
                     <span class="vip-badge text">
-                      <a href="<%= process.env.BASE_URL %>/users/level/up/<%= user._id %>" style="border: none; background-color: transparent; border-radius: 0; outline: none; margin-right: 5px;">
+                      <a href="/users/level/up/<%= user._id %>" style="border: none; background-color: transparent; border-radius: 0; outline: none; margin-right: 5px;">
                         <button class="btn " style="border: none; background-color: transparent;">
                           <i class="fas fa-arrow-up increase-level text-success"></i>
                         </button>
                       </a>
                    
                      VIP Lvl <%= user.level %>
-                      <a href="<%= process.env.BASE_URL %>/users/level/down/<%= user._id %>" style="border: none; background-color: transparent; border-radius: 0; outline: none;">
+                      <a href="/users/level/down/<%= user._id %>" style="border: none; background-color: transparent; border-radius: 0; outline: none;">
                         <button class="btn " style="border: none; background-color: transparent; border-radius: 0; outline: none;">
                           <i class="fas fa-arrow-down increase-level text-danger"></i>
                         </button>
@@ -104,16 +104,16 @@
                     <p id="copyMessage" class="text-success mt-2" style="display: none;">Invite Link Copied!</p>
                   </div>
                   
-                 <a href="<%= process.env.BASE_URL %>/users/delete/<%= user._id %>"> <button type="button" class="btn btn-danger text-dark btn-rounded btn-md mt-3">
+                 <a href="/users/delete/<%= user._id %>"> <button type="button" class="btn btn-danger text-dark btn-rounded btn-md mt-3">
                     Delete Account
                   </button></a> 
-                  <a href="<%= process.env.BASE_URL %>/users/status/deactivate/<%= user._id %>"> <button type="button" class="btn btn-warning text-dark btn-rounded btn-md mt-3">
+                  <a href="/users/status/deactivate/<%= user._id %>"> <button type="button" class="btn btn-warning text-dark btn-rounded btn-md mt-3">
                     Disable Account
                   </button></a> 
-                  <a href="<%= process.env.BASE_URL %>/users/status/block/<%= user._id %>"> <button type="button" class="btn btn-primary text-dark btn-rounded btn-md mt-3">
+                  <a href="/users/status/block/<%= user._id %>"> <button type="button" class="btn btn-primary text-dark btn-rounded btn-md mt-3">
                     Block Account
                   </button></a> 
-                  <a href="<%= process.env.BASE_URL %>/users/status/activate/<%= user._id %>"> <button type="button" class="btn btn-success text-dark btn-rounded btn-md mt-3">
+                  <a href="/users/status/activate/<%= user._id %>"> <button type="button" class="btn btn-success text-dark btn-rounded btn-md mt-3">
                     Enable Account
                   </button></a> 
                  
@@ -140,7 +140,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<%= process.env.BASE_URL %>/users/edit/balance/<%= user._id %>" method="POST">
+        <form action="/users/edit/balance/<%= user._id %>" method="POST">
             <input class="form-control" type="text" name="newbalance" placeholder="<%= user.account.balance %>" aria-label="default input example">
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -179,7 +179,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<%= process.env.BASE_URL %>/users/edit/withdrawnamount/<%= user._id %>" method="POST">
+        <form action="/users/edit/withdrawnamount/<%= user._id %>" method="POST">
             <input class="form-control" type="text" name="newwithdrawnamount" placeholder="<%= user.account.withdrawnAmount %>" aria-label="default input example">
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -220,7 +220,7 @@
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-      <form action="<%= process.env.BASE_URL %>/users/edit/creditscore/<%= user._id %>" method="POST">
+      <form action="/users/edit/creditscore/<%= user._id %>" method="POST">
           <input class="form-control" type="text" name="newcreditscore" placeholder="<%= user.creditscore %>" aria-label="default input example">
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

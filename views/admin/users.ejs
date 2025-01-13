@@ -749,33 +749,33 @@ main .recent-orders a{
             </div>
 
             <div class="sidebar">
-                <a href="<%= process.env.BASE_URL %>/users/admin/dashboard" >
+                <a href="/users/admin/dashboard" >
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="<%= process.env.BASE_URL %>/users/admin/users/page/1" class="active">
+                <a href="/users/admin/users/page/1" class="active">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Users</h3>
                 </a>
 
-                <a href="<%= process.env.BASE_URL %>/users/admin/payments/page/1">
+                <a href="/users/admin/payments/page/1">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Payment proofs</h3>
                 </a>
-                <a href="<%= process.env.BASE_URL %>/users/admin/withdrawrequests/page/1">
+                <a href="/users/admin/withdrawrequests/page/1">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Withdraw Requests</h3>
                 </a>
 
-                <a href="<%= process.env.BASE_URL %>/logout">
+                <a href="/logout">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -818,7 +818,7 @@ main .recent-orders a{
                    
                
                
-                <td><a href="<%= process.env.BASE_URL %>/users/edit/<%= user._id %>">Manage</a>
+                <td><a href="/users/edit/<%= user._id %>">Manage</a>
 
                 <td><%= user.name %></td>
                 <td><%= user.phoneNumber %></td>
@@ -847,7 +847,7 @@ main .recent-orders a{
           <ul class="pagination">
             <% if (currentPage > 1) { %>
               <li class="page-item">
-                <a class="page-link" href="<%= process.env.BASE_URL %>/users/admin/users/page/1" aria-label="Previous">
+                <a class="page-link" href="/users/admin/users/page/1" aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
@@ -855,13 +855,13 @@ main .recent-orders a{
   
             <% for (let i = 1; i <= totalPages; i++) { %>
               <li class="page-item <% if (currentPage === i) { %>active<% } %>">
-                <a class="page-link" href="<%= process.env.BASE_URL %>/users/admin/users/page/<%= i %>"><%= i %></a>
+                <a class="page-link" href="/users/admin/users/page/<%= i %>"><%= i %></a>
               </li>
             <% } %>
   
             <% if (currentPage < totalPages) { %>
               <li class="page-item">
-                <a class="page-link" href="<%= process.env.BASE_URL %>/users/admin/users/page/<%= totalPages %>/" aria-label="Next">
+                <a class="page-link" href="/users/admin/users/page/<%= totalPages %>/" aria-label="Next">
                   <span aria-hidden="true">&raquo;</span>
                 </a>
               </li>

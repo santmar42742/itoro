@@ -51,13 +51,13 @@
         <div class="col-md-12 col-xl-8">
           <ul class="nav justify-content-center">
             <li class="nav-item">
-              <a class="btn btn-outline-light" style="margin-left: 10px;" href="<%= process.env.BASE_URL %>/users/tasks">Tasks</a>
+              <a class="btn btn-outline-light" style="margin-left: 10px;" href="/users/tasks">Tasks</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-outline-light" style="margin-left: 10px;"  href="<%= process.env.BASE_URL %>/users/claimedtasks">Claimed Tasks</a>
+              <a class="btn btn-outline-light" style="margin-left: 10px;"  href="/users/claimedtasks">Claimed Tasks</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-outline-light" style="margin-left: 10px;" href="<%= process.env.BASE_URL %>/users/unclaimedtasks">Expired Tasks</a>
+              <a class="btn btn-outline-light" style="margin-left: 10px;" href="/users/unclaimedtasks">Expired Tasks</a>
             </li>
           </ul>
           <% expiredTasks.forEach(function(task) { %>
