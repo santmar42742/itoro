@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+   
+    flex-direction: column;
+    height: 100vh;
+
+      background-image: url('/images/background.jpg');
+      background-size: cover; /* Adjust to your preference */
+   
+      @media(max-width: 991px){
+        .sidebar{
+          background-color: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+        }
+      }
+      /* CSS for VIP badge and layout */
+    }
+    .profile-container {
+            background: linear-gradient(to bottom, #446ad3, #e46be8); /* Gradient background */
+            
+        }
+        .transparent-button {
+  background-color: transparent;
+  margin-left: 3px;
+  margin-top: 0;
+  border: none;
+  color: white; /* Change the text color as needed */
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+  
+  <section class="vh-100 " >
+    <div class="container py-3 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-xl-8">
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="btn btn-outline-light" style="margin-left: 10px;" href="<%= process.env.BASE_URL %>/users/tasks">Tasks</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light" style="margin-left: 10px;"  href="<%= process.env.BASE_URL %>/users/claimedtasks">Claimed Tasks</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light" style="margin-left: 10px;" href="<%= process.env.BASE_URL %>/users/unclaimedtasks">Expired Tasks</a>
+            </li>
+          </ul>
+          <% expiredTasks.forEach(function(task) { %>
+
+          <div class="card profile-container text-white mt-4" style="border-radius: 15px;">
+  <div class="card-body text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-center">
+            Task <%= task.title %> || Expired at : <%= task.expiresAt %> || Failed to claim task in given time
+
+          </p>
+        </div>
+        <div class="col-md-12 text-center">
+          <a href="#">
+            <button class="btn btn-danger rounded" style="text-decoration: line-through;" disabled>Claim</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <% }); %>
+
+
+        
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

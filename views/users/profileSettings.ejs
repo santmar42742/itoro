@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Settings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+   
+    flex-direction: column;
+    height: 100vh;
+
+      background-image: url('/images/background.jpg');
+      background-size: cover; /* Adjust to your preference */
+   
+      @media(max-width: 991px){
+        .sidebar{
+          background-color: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+        }
+      }
+      /* CSS for VIP badge and layout */
+.vip-badge {
+  display: inline-block; /* Display badge and text on the same line */
+  vertical-align: middle; /* Align vertically in the middle of the line */
+  font-size: 16px; /* Adjust the font size of the badge text */
+}
+
+.vip-badge-img {
+  width: 30px; /* Adjust the width of the badge image as needed */
+  height: auto; /* Maintain aspect ratio while resizing */
+  margin-left: 5px; /* Add some space between the text and the badge image */
+}
+
+  }
+  .profile-container {
+            background: linear-gradient(to bottom, #446ad3, #e46be8); /* Gradient background */
+            
+        }
+
+
+  </style>
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <section class="vh-100 " >
+        <div class="container py-5 h-100 ">
+          <div class="row d-flex justify-content-center align-items-center h-100 ">
+            <div class="col-md-12 col-xl-6 ">
+      
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#loginPasswordCollapse" aria-expanded="false" aria-controls="loginPasswordCollapse">
+                        Change Login Password
+                      </button>
+                    </h2>
+                    <div id="loginPasswordCollapse" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <form action="/users/profile/settings/changepassword/" method="POST">
+                          <div class="mb-3">
+                            <input type="password" name="oldloginpassword" class="form-control" id="oldloginpassword" placeholder="Enter previous login password" required>
+                          </div>
+                          <div class="mb-3">
+                            <input type="password" name="newloginpassword" class="form-control" id="newloginpassword" placeholder="Enter new login password" required>
+                          </div>
+                          <div class="mb-3">
+                            <div class="d-flex justify-content-center">
+                              <button  type="submit" class="btn btn-primary btn-md btn-rounded text-center">
+                                Change Login Password
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#withdrawalPasswordCollapse" aria-expanded="false" aria-controls="withdrawalPasswordCollapse">
+                        Change Withdrawal Password
+                      </button>
+                    </h2>
+                    <div id="withdrawalPasswordCollapse" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <form action="/users/profile/settings/changewithdrawalpassword/" method="POST">
+                          <div class="mb-3">
+                            <input type="password" name="oldwithdrawalpassword" class="form-control" id="oldwithdrawalpassword" placeholder="Enter previous withdrawal password" required>
+                          </div>
+                          <div class="mb-3">
+                            <input type="password" name="newwithdrawalpassword" class="form-control" id="newwithdrawalpassword" placeholder="Enter new withdrawal password" required>
+                          </div>
+                          <div class="mb-3">
+                            <div class="d-flex justify-content-center">
+                              <button type="submit" class="btn btn-primary btn-md btn-rounded text-center">
+                                Change Withdrawal Password
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+            </div>
+      
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <%- include('../partials/footer'); %>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+header {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  @media all and (max-width: 380px) {
+    left: 1rem;
+    right: 1rem;
+  }
+  @media all and (max-width: 1024px) {
+    padding: 1rem 2rem;
+    box-shadow: 0 1rem 3rem rgba(90,101,206,.15);
+    border-radius: 4rem;
+    border: .1rem solid #eff0fb;
+    background-color: #fff;
+    top: 2rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media all and (max-width: 1024px) {
+      flex-wrap: wrap;
+  }
+  @media all and (min-width:1025px) and (max-width: 1560px) {
+    justify-content: flex-start;
+  }
+  &-content {
+    margin: 0 auto;
+    max-width: 111rem;
+    width: 100%;
+  }
+  &-logo {
+    & a {
+      background-image: linear-gradient(to right, #8879ff 0%, #7892ff 100%);
+      background-clip: text;
+      text-shadow: -0.1rem 1.5rem 1.7rem rgba(120, 146, 255, 0.15);
+      color: #7892ff;
+      font-size: 3.6rem;
+      font-weight: 400;
+      text-decoration: none;
+
+      & strong {
+        font-family: "Museo Sans Cyrl 900";
+        letter-spacing: 0.18rem;
+      }
+      font-family: "Museo Sans Cyrl 300";
+      letter-spacing: 0.18rem;
+      margin-right: 6rem;
+    }
+    @media all and (max-width: 1024px) {
+      flex: 1;
+      margin-right: 0;
+    }
+    @media all and (min-width: 1025px) and (max-width: 1650px) {
+      margin-right: 2rem;
+      font-size: 2.8rem;
+    }
+    }
+
+  &-menu {
+
+    &-wrapper {
+      @media all and (min-width: 1650px) {
+        flex: 1;
+      }
+      @media all and (max-width: 1024px) {
+        width: 100%;
+        order: 4;
+      }
+    }
+    &.header-menu-mobile {
+      & li {
+        position: relative;
+        padding: 2rem;
+        border-bottom: 1px solid rgba(#7892ff,0.2);
+        &:last-of-type {
+          border-bottom: none;
+        }
+        & a {
+          display: flex;
+          width: 100%;
+          height: 100%;
+        }
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          width: .5rem;
+          height: .5rem;
+          border-radius: 50%;
+          background-image: linear-gradient(to top,#887aff 0,#7892ff 100%);
+          user-select: none;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    @media all and (max-width: 1024px) {
+      display: none;
+    }
+    @media all and (min-width:1025px) and (max-width: 1560px) {
+      margin-right: 1rem;
+    }
+    & li {
+      margin-right: 1.8rem;
+      @media all and (min-width:1025px) and (max-width: 1560px) {
+        margin-right: 1rem;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+      & a {
+        color: #7c789a;
+        font-family: "Museo Sans Cyrl 300";
+        font-size: 1.4rem;
+        font-weight: 400;
+        text-decoration: none;
+        transition: all 0.4s;
+        &:hover {
+          color: #f18a33;
+        }
+      }
+    }
+    &-bar {
+      overflow: hidden;
+      cursor: pointer;
+      &-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        order: 3;
+        @media all and (min-width: 1025px) {
+          display: none;
+        }
+        &-inner {
+          position: absolute;
+          left: 4rem;
+        }
+      }
+      &.active {
+        &:before {
+          animation: slideLeft 0.2s 0.05s ease-out forwards;
+        }
+        &:after {animation: slideRight 0.2s 0.05s ease-out forwards}
+        & span {
+          animation: rotate45 0.2s ease-out forwards;
+          &:last-child {animation: rotate135 0.2s 0.2s ease-out forwards}
+        }
+      }
+      &.back {
+        &:before {
+          transform: translateX(-120%);
+          animation: slideBack 0.2s 0.05s ease-out forwards;
+        }
+        &:after {
+          transform: translateX(120%);
+          animation: slideBack 0.2s 0.05s ease-out forwards;
+        }
+        & span {
+          transform: rotate(-45deg);
+          animation: rotateBack 0.2s ease-out forwards;
+          &:last-child {
+            transform: rotate(-135deg);
+            animation: rotateBack 0.2s 0.2s ease-out forwards;
+          }
+        }
+      }
+      &:before {
+        content: '';
+        display: block;
+        width: 3rem;
+        height: 0.2rem;
+        background: #7892ff;
+      }
+      &:after {
+        content: '';
+        display: block;
+        width: 3rem;
+        height: 0.2rem;
+        background: #7892ff;
+      }
+      & span {
+        display: block;
+        width: 3rem;
+        height: 0.2rem;
+        background: #7892ff;
+        margin: 1rem 0;
+        &:last-child {
+          opacity: 0;
+          transform: rotate(-45deg);
+          position: absolute;
+          top: 0.2rem;
+        }
+      }
+    }
+    @keyframes rotate135 {
+      from {
+        opacity: 1;
+        transform: rotate(-45deg);
+      }
+      to {
+        opacity: 1;
+        transform: rotate(-135deg);
+      }
+    }
+    @keyframes rotate45 {to {transform: rotate(-45deg)}}
+    @keyframes rotateBack {to {transform: rotate(0)}}
+    @keyframes slideRight {to {transform: translateX(122%)}}
+    @keyframes slideLeft {to {transform: translateX(-150%)}}
+    @keyframes slideBack {to {transform: translateX(0)}}
+  }
+  &-btn {
+    position: relative;
+    text-decoration: none;
+    &-wrapper {
+      @media all and (max-width: 480px) {
+        margin-right: 1rem;
+      }
+      @media all and (max-width: 1024px) {
+        margin-right: 3rem;
+        order: 2;
+      }
+    }
+  }
+
+  &.header--logo {
+    .header-menu-wrapper, .header-btn-wrapper, .menu-bar-wrap  {
+      display: none;
+    }
+  }
+}
+
+
+.header-menu-mobile {
+    & li {
+      position: relative;
+      &:before {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: .5rem;
+        height: .5rem;
+        border-radius: 50%;
+        //background-image: linear-gradient(to top,#887aff 0,#7892ff 100%);
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+}

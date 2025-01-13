@@ -1,0 +1,26 @@
+.alert-success {
+    background-color: #eeffeb;
+    border: 1px solid #c2ffc2;
+    padding: 15px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: #7d7b8e;
+    font-family: "Museo Sans Cyrl 300";
+    font-weight: 400;
+    line-height: 2rem;
+    font-size: 1.6rem;
+    border-radius: 2rem;
+}
+
+footer .footer-disclaimer {
+    padding: 0 0 2rem 0;
+    color: #8c9bc3;
+    font-family: "Museo Sans Cyrl 100";
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.btn-block {
+    width: 100%;
+}

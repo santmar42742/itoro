@@ -1,0 +1,133 @@
+.registration {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  &-bullet {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  user-select: none;
+  pointer-events: none;
+    @media all and (max-width: 1365px) {
+      display: none;
+    }
+  &--left {
+    top: 33rem;
+    left: 5rem;
+    transform: rotate(-70deg);
+    z-index: 13;
+  }
+}
+
+  &-abs {
+    position: absolute;
+    &--left {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      user-select: none;
+      pointer-events: none;
+      max-width: 15.6rem;
+      max-height: 34rem;
+      @media all and (max-width: 1365px) {
+        display: none;
+      }
+    }
+    &--right {
+      right: 0;
+      bottom: -5rem;
+      width: 72rem;
+      height: 77rem;
+      user-select: none;
+      pointer-events: none;
+      @media all and (max-width: 1365px) {
+        display: none;
+      }
+      @media all and (min-width:1366px) and (max-width: 1560px) {
+        bottom: -2rem;
+        width: 67rem;
+        height: 66rem;
+      }
+    }
+  }
+
+  &-section {
+    padding: 30rem 0 12rem;
+    position: relative;
+    background-image: linear-gradient(to top, #ffffff 0%, #eef4ff 100%);
+    @media all and (max-width: 1024px) {
+      padding: 5rem 0;
+    }
+  }
+
+  &-info {
+    width: 69rem;
+    @media all and (min-width: 1025px) and (max-width: 1600px) {
+      width: 55%;
+    }
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      width: 70%;
+    }
+    @media all and (max-width: 767px) {
+      width: 90%;
+      margin:0 auto;
+    }
+    &__title {
+      margin-bottom: 4.5rem;
+      position: relative;
+      color: #333333;
+      font-family: "Museo Sans Cyrl 900";
+      font-size: 4.8rem;
+      font-weight: 400;
+      line-height: 6rem;
+      @media all and (max-width: 1024px) {
+        font-size: 4.5rem;
+      }
+    }
+    &__subtitle {
+      margin-bottom: 8.5rem;
+      color: #333333;
+      font-family: "Museo Sans Cyrl 100";
+      font-size: 3.6rem;
+      font-weight: 400;
+      line-height: 4.7rem;
+      @media all and (max-width: 1024px) {
+        font-size: 3.2rem;
+      }
+    }
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(-1,1);
+    &-wrapper {
+      position: absolute;
+      top: 14.5rem;
+      right: 5rem;
+      width: 62.5rem;
+      height: 69rem;
+      user-select: none;
+      pointer-events: none;
+      @media all and (max-width: 767px) {
+        display: none;
+      }
+      @media all and (min-width:768px) and (max-width: 1024px) {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(50%,-50%);
+        height: auto;
+      }
+      @media all and (min-width: 1025px) and (max-width: 1600px) {
+        position: relative;
+        width: 44%;
+        top: auto;
+        height: auto;
+        right: auto;
+      }
+    }
+  }
+}

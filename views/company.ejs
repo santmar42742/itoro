@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+   
+    flex-direction: column;
+    height: 100vh;
+
+      background-image: url('/images/background.jpg');
+      background-size: cover; /* Adjust to your preference */
+   
+      @media(max-width: 991px){
+        .sidebar{
+          background-color: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+        }
+      }
+      /* CSS for VIP badge and layout */
+    }
+    .profile-container {
+            background: linear-gradient(to bottom, #446ad3, #e46be8); /* Gradient background */
+            
+        }
+
+  </style>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+  <header class="container text-white">
+    <h1 class="display-4">Innovation for Your Digital Success</h1>
+</header>
+
+<section class="container text-white">
+    <p class="lead">iToro was established with a clear mission: to empower businesses in optimizing and expanding their online presence.</p>
+    <p class="lead">Discover the Future of Marketing with iToro</p>
+    <p class="lead">iToro, our comprehensive advertising agency, is dedicated to boosting the revenue of your technology-based e-commerce venture.</p>
+</section>
+
+<section class="container text-white">
+    <h2>Nestled in the heart of Saskatchewan, Canada</h2>
+    <p class="lead">Our team boasts a wealth of expertise in the realm of marketing. Our true specialty, however, lies in one area – maximizing your return on ad spend.</p>
+</section>
+
+<section class="container text-white">
+    <h2>Our Team and Expertise</h2>
+    <p class="lead">Irrespective of your business's size, we collaborate with a diverse community of e-commerce entrepreneurs hailing from Canada, the United States, the United Kingdom, and Australia.</p>
+    <p class="lead">The iToro team consists of a carefully curated group of digital marketing experts. From executing ad campaigns to providing sales funnel support, our team possesses the proficiency required to elevate the sales of your technology-based e-commerce business.</p>
+    <p class="lead">Our sole focus is to excel in one endeavor: multiplying your return on ad spend.</p>
+</section>
+
+<section class="container text-white">
+    <h2>What Motivates iToro:</h2>
+    <p class="lead">At iToro, our guiding principle is quality over quantity. We uphold the highest standards in our work and take no shortcuts. Our team places a strong emphasis on delivering quality services, which is the cornerstone of our growth and our diverse client base.</p>
+    <p class="lead">We firmly believe that regardless of your business model, you should have the ability to track the impact of your investments. To achieve this, we employ a variety of performance indicators to monitor your ad spend and assess the revenue generated. These indicators include Facebook Pixel, Google Analytics, Tiktok for Business, Linkedin Insight Tag, and more.</p>
+</section>
+
+<section class="container text-white" >
+    <h2>iToro's Range of Services:</h2>
+    <p class="lead">• Elevating Your Revenue Through Advertising:</p>
+    <ul class="lead">
+        <li>Tiktok Ads</li>
+        <li>Instagram Ads</li>
+        <li>Facebook Ads</li>
+        <li>Google Ads</li>
+        <li>Amazon Ads</li>
+        <li>Comprehensive online ad campaign design, implementation, and management</li>
+    </ul>
+</section>
+
+<section class="container text-white">
+    <h2>Looking Ahead:</h2>
+    <p class="lead">• End-to-end Sales Funnel Support: Transforming cold audiences into paying customers using the potential of social media.</p>
+    <p class="lead">Our inspiration springs from the unique requirements of each business we collaborate with. It's this drive that propels us to devise innovative, scalable online advertising solutions.</p>
+</section>
+
+<%- include('./partials/footer'); %>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

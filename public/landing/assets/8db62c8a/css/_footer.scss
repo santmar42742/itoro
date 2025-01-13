@@ -1,0 +1,89 @@
+footer {
+  background-image: linear-gradient(to top, #363958 0%, #3b4076 100%);
+  .footer {
+    padding: 5.5rem 0 3.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @media all and (max-width: 1024px) {
+      flex-wrap: wrap;
+    }
+    &-logo {
+      margin-right: 12rem;
+      @media all and (max-width: 480px) {
+        margin:0 auto 2.5rem;
+      }
+      @media all and (min-width: 481px) and (max-width: 1024px) {
+        margin: 0 auto 2.5rem;
+        width: 100%;
+      }
+      & a {
+        color: #ffffff;
+        font-size: 3.6rem;
+        font-weight: 400;
+        text-decoration: none;
+      }
+
+      & strong {
+        font-family: "Museo Sans Cyrl 900";
+        letter-spacing: 0.18rem;
+      }
+
+      font-family: "Museo Sans Cyrl 300";
+      letter-spacing: 0.18rem;
+    }
+    &-menu {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      @media all and (max-width: 1024px) {
+        width: 100%;
+      }
+      & li {
+        margin-bottom: 2rem;
+        position: relative;
+        width:calc(100% / 4);
+        @media all and (max-width: 480px) {
+          width: calc(100% / 2);
+        }
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          width: 0.4rem;
+          height: 0.4rem;
+          border-radius: 50%;
+          background-color: #7b8dff;
+        }
+        & a {
+          padding-left: 1.5rem;
+          color: #cdcbda;
+          font-family: "Museo Sans Cyrl 300";
+          font-size: 1.5rem;
+          font-weight: 400;
+          text-decoration: none;
+          transition: all 0.4s;
+          &:hover {
+            color: #ffffff;
+            text-decoration: underline;
+          }
+        }
+      }
+      &-wrapper {
+
+      }
+    }
+    &-copyright {
+      padding: 3.5rem 0;
+      color: #8c9bc3;
+      font-family: "Museo Sans Cyrl 100";
+      font-size: 1.4rem;
+      font-weight: 400;
+      text-align: center;
+      border-top: 1px solid rgba(#7991ff, 0.2);
+    }
+  }
+}

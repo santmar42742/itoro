@@ -1,0 +1,213 @@
+.program {
+  &-animation {
+    &-wrapper {
+      @media all and (max-width: 1365px) {
+        display: none;
+      }
+      &--left {
+        width: 10.5rem;
+        position: absolute;
+        left: 15rem;
+        bottom: 25rem;
+        .excellence-animation-item {
+          position: absolute;
+          &:nth-of-type(1) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation-duration: 3.2s;
+            animation-name: slidein;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-delay: 2.5s;
+          }
+          &:nth-of-type(2) {
+            top: 1rem;
+            right: 2rem;
+            animation-duration: 2.2s;
+            animation-name: slidein;
+
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            width: 4rem;
+            height: 4rem;
+          }
+          &:nth-of-type(3) {
+            right: 0;
+            bottom: 0;
+            animation-duration: 1.7s;
+            animation-name: slidein;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+          }
+        }
+      }
+      &--right {
+        width: 10.5rem;
+        position: absolute;
+        top: 15rem;
+        right: 15rem;
+        .excellence-animation-item {
+          position: absolute;
+          &:nth-of-type(1) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation-duration: 3.2s;
+            animation-name: slidein;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-delay: 2.5s;
+          }
+          &:nth-of-type(2) {
+            top: 1rem;
+            right: 2rem;
+            animation-duration: 2.2s;
+            animation-name: slidein;
+
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+          }
+          &:nth-of-type(3) {
+            right: 0;
+            bottom: 0;
+            animation-duration: 1.7s;
+            animation-name: slidein;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+          }
+        }
+      }
+    }
+    &-item {
+      position: absolute;
+      &:nth-of-type(1) {
+        width: 3rem;
+        height: 3rem;
+      }
+      &:nth-of-type(2) {
+        width: 2rem;
+        height: 2rem;
+      }
+      &:nth-of-type(3) {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+  &-section {
+    margin-top: 6rem;
+    position: relative;
+    padding: 8.5rem 0 6rem;
+    background-image: linear-gradient(to top, #363958 0%, #3b4076 100%);
+    @media all and (max-width: 1024px) {
+      padding: 5rem 0;
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      background: url('../img/program-right.png') no-repeat no-repeat;
+      top: -10rem;
+      right: 0;
+      width: 92.5rem;
+      height: 116rem;
+      z-index: 20;
+      user-select: none;
+      pointer-events: none;
+      @media all and (max-width: 1024px) {
+        display: none;
+      }
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: url('../img/program-after.png') no-repeat no-repeat;
+      height: 20rem;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      user-select: none;
+      pointer-events: none;
+      @media all and (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+  &-wrap {
+    position: relative;
+    z-index: 20;
+  }
+  &-switcher {
+    max-width: 73rem;
+    width: 100%;
+    margin:0 auto 6.5rem  ;
+  }
+  &-slider {
+    margin-bottom: 3.5rem;
+  }
+  &-item {
+    max-width: 35rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @media all and (max-width: 480px) {
+      max-width: 100%;
+      width: 100%;
+      &:nth-of-type(1) {
+        margin-bottom: 2rem;
+      }
+    }
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @media all and (max-width: 480px) {
+        max-width: 30rem;
+        margin:0 auto;
+        flex-wrap: wrap;
+      }
+    }
+    &__icon {
+      margin-right: 1.5rem;
+      width: 2.2rem;
+      height: 2rem;
+      user-select: none;
+      pointer-events: none;
+    }
+    &__value {
+      color: #ffffff;
+      font-family: "Museo Sans Cyrl 300";
+      font-size: 2.4rem;
+      font-weight: 400;
+      line-height: 2.6rem;
+      & strong {
+        font-family: "Museo Sans Cyrl 900";
+        font-size: 4.4rem;
+      }
+    }
+    &__text {
+      width: 100%;
+      color: #aebeff;
+      font-family: "Museo Sans Cyrl 300";
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 2.6rem;
+      letter-spacing: 0.018rem;
+    }
+  }
+  &-content {
+    display: none;
+    padding: 5.5rem 6rem 4rem;
+    box-shadow: 0 1.5rem 4.3rem rgba(36, 39, 88, 0.31);
+    border-radius: 2rem;
+    border: 0.1rem dashed #887aff;
+    background-color: #393d6a;
+    &.active {
+      display: block;
+    }
+
+  }
+}

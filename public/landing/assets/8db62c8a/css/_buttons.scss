@@ -1,0 +1,124 @@
+.btn {
+  position: relative;
+  padding: 2.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35rem;
+  color: #fffefe;
+  font-family: "Museo Sans Cyrl 700";
+  font-size: 1.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.127rem;
+  border-radius: 3.5rem;
+  outline: none;
+  transition: all 0.3s;
+  background-image: linear-gradient(to top, #f18833 0%, #f6b035 100%);
+  background-color: #eb8662;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, #f18833 0%, #f6b035 100%);
+    border-radius: 3.5rem;
+    z-index: -1;
+  }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, #f18833 0%, #f6b035 100%);
+    border-radius: 3.5rem;
+    z-index: -2;
+  }
+  &:hover {
+    box-shadow: -0.1rem 1.5rem 1.6rem 0.2rem rgba(241, 139, 51, 0.15);
+    background-color: #eb8662;
+    background-image: none;
+    &:before {
+      opacity: 0;
+    }
+  }
+  &--blue {
+    width: 25rem;
+    border-radius: 3rem;
+    font-family: "Museo Sans Cyrl 500";
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color: #6681f3;
+    background-image: none;
+  }
+}
+.btn-head {
+  position: relative;
+  padding: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  width: 16rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14rem;
+  border-radius: 2.8rem;
+  border: 0.1rem solid #ced5ff;
+  background-color: #ffffff;
+  box-shadow: 0 1rem 3rem rgba(90, 101, 206, 0.15);
+  transition: all 0.4s;
+  &__icon {
+    margin-right: 1.8rem;
+    position: relative;
+    width: 4.1rem;
+    height: 4.1rem;
+    border-radius: 50%;
+    background-image: linear-gradient(to top, #887aff 0%, #7892ff 100%);
+    &:before {
+      content: '\f2fd';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      font-family:Material-Design-Iconic-Font;
+      font-size: 1.6rem;
+      color: #ffffff;
+    }
+  }
+  &__title {
+    color: #7892ff;
+    font-family: "Museo Sans Cyrl 500";
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    transition: all 0.4s;
+  }
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 2.8rem;
+    background-color: #6681f3;
+    opacity: 1;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+  &:hover {
+    background-color: transparent;
+    border: 0.1rem solid #6681f3;
+    .btn-head__title {
+      color: #ffffff;
+    }
+  }
+}

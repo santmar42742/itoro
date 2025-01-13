@@ -1,0 +1,102 @@
+<style>
+  .notification-list {
+      list-style: none;
+      padding: 0;
+  }
+
+  .notification-item {
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      margin-bottom: 5px;
+      padding: 10px;
+      border-radius: 5px;
+  }
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent  ">
+    <div class="container">
+<!-- Logo-->
+<a class="navbar-brand fs4 text-lg text-white" href="/home">
+  <img src="/images/logo.png" alt="iToro Logo" style="max-height: 40px; font-weight: bold;">
+  <span style="font-weight: bold;">iToro</span>
+</a>
+
+
+      <!--Toggle Button-->
+
+      <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Sidebar-->
+      <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+
+      <!-- Sidebar-->
+        <div class="offcanvas-header text-white border-bottom shadow-none">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">iToro</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+              <!-- canvas body-->
+
+        <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+          <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+            <li class="nav-item mx-2 text-white">
+              <a href="/users/profile"style="font-weight: bold;" class="btn btn-outline-primary rounded-pill ">Profile</a>
+          </li>
+          
+            <li class="nav-item mx-2 text-white">
+              <a class="nav-link active text-white" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item mx-2 text-white">
+              <a class="nav-link text-white" href="/users/tasks">Tasks</a>
+            </li>
+            <li class="nav-item mx-2 text-white">
+              <a class="nav-link text-white" href="/contactus">Contact Us</a>
+            </li>
+            <li class="nav-item mx-2 text-white">
+              <a class="nav-link text-white" href="/event">Event</a>
+            </li>
+          </ul>
+
+          <!--login/signup-->
+          <div class="d-flex justify-content-center flex-lg-row flex-column align-items-center gap-3">
+            <div class="notification-container" style="position: relative;">
+                <div class="notification-icon" style="font-size: 24px; cursor: pointer;" onclick="var messagesContainer = document.getElementById('messagesContainer'); messagesContainer.style.display = (messagesContainer.style.display === 'block') ? 'none' : 'block';"><i class="fas fa-bell text-white"></i></div>
+                <div class="messages-container" style="display: none; position: absolute; top: 30px; right: 0; background-color: #fff; border: 1px solid #ccc; padding: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);" id="messagesContainer">
+                  <% if (user && user.notifications && user.notifications.length > 0) { %>
+                    <ul class="notification-list">
+                        <% user.notifications.forEach(notification => { %>
+                            <li class="notification-item"><%= notification.message %></li>
+                        <% }); %>
+                    </ul>
+                <% } else { %>
+                    <p>No notifications</p>
+                <% } %>
+</div>
+
+            </div>
+            <a href="/logout" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: #b559b8;">Logout</a>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // Function to toggle the display of messages container
+    function toggleMessagesContainer() {
+        var messagesContainer = document.getElementById('messagesContainer');
+        messagesContainer.style.display = (messagesContainer.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Add event listener to close messages container on document click
+    document.addEventListener('click', function (event) {
+        var messagesContainer = document.getElementById('messagesContainer');
+        var notificationIcon = document.querySelector('.notification-icon');
+
+        if (!notificationIcon.contains(event.target) && !messagesContainer.contains(event.target)) {
+            // Click occurred outside the notification icon and messages container, hide the container
+            messagesContainer.style.display = 'none';
+        }
+    });
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+   
+    flex-direction: column;
+    height: 100vh;
+
+      background-image: url('/images/background.jpg');
+      background-size: cover; /* Adjust to your preference */
+   
+      @media(max-width: 991px){
+        .sidebar{
+          background-color: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+        }
+      }
+      /* CSS for VIP badge and layout */
+    }
+    .profile-container {
+            background: linear-gradient(to bottom, #446ad3, #e46be8); /* Gradient background */
+            
+        }
+
+  </style>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+  <div class="container text-white ">
+    <h4 class="text-white text-center">Terms and Conditions for Agent & User Agreements</h4>
+
+    <h2>Alternative Charges</h2>
+    <p>The fees for the agent's information provision on the website.</p>
+    <h2>Agent's Information Provision</h2>
+    <p>Pertains to our agent service's documentation and information.</p>
+
+    <p>This attachment comprises the Agent's Agreement. We make a solemn commitment to users, assuring them that we will deliver superior agent services, as explicitly outlined in the Agent's Agreement.</p>
+
+    <h3>1.0 Definition</h3>
+    <p>A) The examples provided in the following Terms & Conditions serve as references to elucidate the meanings of the rules. It is essential that none of the regulations undergo any alteration to their original intent.</p>
+    <p>B) Titles listed under the terms and regulations do not provide definitions. For detailed definitions, refer to the following listed terms and regulations.</p>
+
+    <h3>1.2 Terms and Conditions</h3>
+    <p>A) The following are the Terms & Conditions governing our platform. Prior to signing the agreements, we urge you to carefully read the contents. These contents encompass an overview of our company, the provision of our services, the resolution of any issues that may arise, and information about our company. Should you encounter any issues with the Terms & Conditions, please do not hesitate to provide feedback to our customer service. We hereby assume legal responsibility for any improper conduct uncovered during the application process.</p>
+    <p>B) These Terms & Conditions take precedence over any other regulations set forth by app developers, addressing illicit trade, behavior, and business operations.</p>
+
+    <p><strong>Attention:</strong> If you are an app developer or programmer, be aware that you are liable. This implies that we will take action against any actions leading to legal liability for a breach of agreement terms. This measure ensures the cooperation of agents with us in the future.</p>
+
+    <h3>2.0 Responsibilities for Agents</h3>
+    <p>A) Users must complete a set of tasks within a 24-hour period to ensure their timely completion.</p>
+    <p>B) Early termination is not permitted.</p>
+    <p>C) Users are prohibited from spreading or sharing false information on social media or any other platforms.</p>
+    <p>D) Each user will be randomly assigned a set of tasks, which may include 0-3 merged data, with each data set potentially containing 1-3 merged products.</p>
+    <p>E) The minimum withdrawal amount is 50 USDT after completing a set of tasks.</p>
+    <p><strong>Note:</strong> Withdrawals will not be processed with a credit score below 100.</p>
+    <p>F) Each user must complete 3 sets of tasks before termination.</p>
+    <p><strong>Note:</strong> 3 sets of tasks encompass 120/135/150/180 tasks.</p>
+
+    <p><em class="text-white">iToro reserves the right to amend or add to these Terms & Conditions.</em></p>
+</div>
+
+  
+<%- include('./partials/footer'); %>
+  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

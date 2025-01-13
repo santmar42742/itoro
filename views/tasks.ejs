@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+   
+    flex-direction: column;
+    height: 100vh;
+
+      background-image: url('/images/background.jpg');
+      background-size: cover; /* Adjust to your preference */
+   
+      @media(max-width: 991px){
+        .sidebar{
+          background-color: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+        }
+      }
+      /* CSS for VIP badge and layout */
+    }
+    .profile-container {
+            background: linear-gradient(to bottom, #446ad3, #e46be8); /* Gradient background */
+            
+        }
+        .transparent-button {
+  background-color: transparent;
+  margin-left: 3px;
+  margin-top: 0;
+  border: none;
+  color: white; /* Change the text color as needed */
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+  
+  <section class="vh-100 " >
+    <div class="container py-3 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-xl-8">
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="btn btn-outline-light" style="margin-left: 10px;" href="<%= process.env.BASE_URL %>/users/tasks">Tasks</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light" style="margin-left: 10px;"  href="<%= process.env.BASE_URL %>/users/claimedtasks">Claimed Tasks</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light" style="margin-left: 10px;" href="<%= process.env.BASE_URL %>/users/unclaimedtasks">Expired Tasks</a>
+            </li>
+          </ul>
+
+          <% if (user.account.balance >= 50 && user.taskgeneration !== 'restricted') { %>
+            <% tasks.forEach(function(task) { %>
+              <!-- Your task HTML here -->
+              <div class="card profile-container text-white mt-4" style="border-radius: 15px;">
+                <div class="card-body text-center">
+                  <div class="container">
+                    <div class="row align-items-center">
+                      <div class="col-md-8 text-center">
+                        <p class="text-center">
+                          Task <%= task.title %> || Claim before: <%= task.expiresAt %>
+                        </p>
+                      </div>
+                      <div class="col-md-4">
+                        <button id="claimButton_<%= task._id %>" class="btn btn-primary rounded" onclick="claimTask('<%= task._id %>', '<%= task.title %>','<%= user.account.balance %>')">Claim $1</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% }); %>
+          <% } else if (user.taskgeneration === 'restricted') { %>
+
+            <script>
+              // Display popup here when task generation is restricted
+              window.onload = function() {
+                alert('You have reached maximum tasks limit for your account please contact admin.');
+                // You can replace the alert with your custom popup logic
+              };
+            </script>
+          <% } else { %>
+            <script>
+              // Display popup here when account balance is less than 50
+              window.onload = function() {
+                alert('Account balance is less than $50. Please top up your account to get tasks.');
+                // You can replace the alert with your custom popup logic
+              };
+            </script>
+          <% } %>
+          
+          
+
+
+        
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <script>
+    function claimTask(taskId, taskTitle, balance) {
+      const claimAmounts = {
+  1: 50,
+  2: 50,
+  3: 50,
+  4: 50,
+  5: 50,
+  6: 50,
+  7: 50,
+  8: 50,
+  9: 210,
+  10: 210,
+  11: 210,
+  12: 210,
+  13: 210,
+  14: 210,
+  15: 210,
+  16: 210,
+  17: 210,
+  18: 430,
+  19: 430,
+  20: 430,
+  21: 430,
+  22: 430,
+  23: 430,
+  24: 430,
+  25: 430,
+  26: 430,
+  27: 790,
+  28: 790,
+  29: 790,
+  30: 790,
+  31: 790,
+  32: 790,
+  33: 790,
+  34: 790,
+  35: 790,
+  36: 980,
+  37: 980,
+  38: 980,
+  39: 980,
+  40: 980,
+};
+
+
+      const requiredBalance = claimAmounts[taskTitle] || 50; // Default to 50 for titles without specific requirements
+
+      if (balance < requiredBalance) {
+        // Display popup with message
+        alert(`You must have $${requiredBalance} or more in your account to claim this task.`);
+        return;
+      }
+
+      // Disable the button
+      document.getElementById('claimButton_' + taskId).disabled = true;
+
+      // Show a spinner on the button
+      document.getElementById('claimButton_' + taskId).innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Claiming...';
+
+      // Wait for 2 seconds (adjust as needed)
+      setTimeout(function () {
+        // Enable the button
+        document.getElementById('claimButton_' + taskId).disabled = false;
+
+        // Reset the button text
+        document.getElementById('claimButton_' + taskId).innerText = 'Claim';
+
+        // Proceed with the actual button link request
+        window.location.href = "<%= process.env.BASE_URL %>/users/claim-task/" + taskId;
+      }, 2000);
+    }
+</script>
+
+    
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

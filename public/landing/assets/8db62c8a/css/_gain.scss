@@ -1,0 +1,227 @@
+.gain {
+  &-abs {
+    position: absolute;
+    &--left {
+      top: 41rem;
+      left: 0;
+      width: 85.3rem;
+      height: 85.8rem;
+      z-index: 11;
+      user-select: none;
+      pointer-events: none;
+      @media all and (max-width: 1024px) {
+        display: none;
+      }
+      @media all and (max-width: 1600px) {
+        top: 55rem;
+        left: 0;
+        width: 66rem;
+        height: 68rem;
+      }
+      @media all and (min-width:1601px) and (max-width: 1920px) {
+        top: 45rem;
+        left: 0;
+        width: 77rem;
+        height: 81rem;
+      }
+    }
+  }
+  &-section {
+    position: relative;
+    padding: 26rem 0 7.5rem;
+    background-image: linear-gradient(to top, #ffffff 0%, #eef4ff 100%);
+    @media all and (max-width: 1024px) {
+      padding: 5rem 0;
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 20rem;
+      width: 100%;
+      z-index: 10;
+    }
+  }
+  &-wrap {
+    position: relative;
+    z-index: 20;
+  }
+  &-head {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1rem 3rem rgba(90, 101, 206, 0.15);
+    border-radius: 5rem;
+    border: 0.1rem solid #eff0fb;
+    background-color: #ffffff;
+    @media all and (max-width: 568px) {
+      flex-wrap: wrap;
+    }
+    &-wrapper {
+      //margin-bottom: 12rem;
+    }
+    &-item {
+      position: relative;
+      padding: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:calc(100% / 4);
+      color: #8697ac;
+      font-family: "Museo Sans Cyrl 500";
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.4rem;
+      cursor: pointer;
+      @media all and (max-width: 568px) {
+        width: 100%;
+        &:after {
+          opacity: 0;
+        }
+      }
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-image: linear-gradient(to top, #887aff 0%, #7892ff 100%);
+        user-select: none;
+        pointer-events: none;
+      }
+      &:last-of-type {
+        &:after {
+          display: none;
+        }
+      }
+      &.active {
+        border-radius: 5rem;
+        background-color: #6681f3;
+        color: #ffffff;
+        transform: scale(1.1);
+        @media all and (max-width: 568px) {
+          transform: scale(1.05);
+        }
+        &:after {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &-content {
+    display: none;
+    &.active {
+      position: relative;
+      padding-top: 12rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      @media all and (max-width: 568px) {
+        padding-top: 5rem;
+          flex-wrap: wrap;
+      }
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      &-wrapper {
+        width: 78.4rem;
+        height: 44rem;
+        position: absolute;
+        top: 12rem;
+        left: -20rem;
+        user-select: none;
+        pointer-events: none;
+        @media all and (max-width: 568px) {
+          width: 100%;
+          height: auto;
+          position: relative;
+          top: auto;
+          left: auto;
+        }
+        @media all and (min-width: 569px) and (max-width: 1024px) {
+          position: relative;
+          width: 78.4rem;
+          height: auto;
+          top: auto;
+          left: auto;
+        }
+      }
+    }
+    &-info {
+      max-width: 52.5rem;
+      width: 100%;
+      @media all and (max-width: 480px) {
+        width: 100%;
+      }
+      &__title {
+        margin-bottom: 4.2rem;
+        color: #333333;
+        font-family: "Museo Sans Cyrl 300";
+        font-size: 3rem;
+        font-weight: 400;
+        line-height: 4rem;
+
+        letter-spacing: 0.03rem;
+        & strong {
+          display: block;
+          font-family: "Museo Sans Cyrl 900";
+          letter-spacing: 0.03rem;
+          text-transform: uppercase;
+        }
+      }
+      &-text {
+        margin-bottom: 8rem;
+        & p {
+          margin-bottom: 1rem;
+          color: #7d7b8e;
+          font-family: "Museo Sans Cyrl 300";
+          font-size: 1.8rem;
+          font-weight: 400;
+          line-height: 2.4rem;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+        & ul {
+          & li {
+            margin-bottom: 2rem;
+            padding-left: 2.5rem;
+            position: relative;
+            color: #7d7b8e;
+            font-family: "Museo Sans Cyrl 300";
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 2.4rem;
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+            & strong {
+              color: #333333;
+              font-family: "Museo Sans Cyrl 700";
+            }
+            &:before {
+              content: '\f26e';
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              font-family: Material-Design-Iconic-Font;
+              font-size: 1rem;
+              color: #758ef9;
+            }
+          }
+        }
+      }
+    }
+  }
+}

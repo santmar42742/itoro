@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+   
+    flex-direction: column;
+    height: 100vh;
+
+      background-image: url('/images/background.jpg');
+      background-size: cover; /* Adjust to your preference */
+   
+      @media(max-width: 991px){
+        .sidebar{
+          background-color: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+        }
+      }
+      /* CSS for VIP badge and layout */
+    }
+    .profile-container {
+            background: linear-gradient(to bottom, #446ad3, #e46be8); /* Gradient background */
+            max-width: 90%;
+        }
+        .transparent-button {
+  background-color: transparent;
+  margin-left: 3px;
+  margin-top: 0;
+  border: none;
+  color: white; /* Change the text color as needed */
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+
+  <div class="rounded container text-center mt-5 profile-container" style="margin-bottom: 150px;">
+    <div class="container" style="max-width: 400px;" >
+      <% if (user.account.balance >= 100) { %>
+        <h3 class="text-center mb-4 mt-2">Withdrawal Request</h3>
+        <form method="POST" action="<%= process.env.BASE_URL %>/users/withdraw-request">
+            <div class="form-group">
+                <label for="trc20Address">TRC20 Address</label>
+                <input type="text" class="form-control" id="trc20Address" name="trc20Address" placeholder="Enter TRC20 Address" style="border-radius: 5px;" required>
+            </div>
+            <div class="form-group">
+                <label for="exchange">Exchange</label>
+                <input type="text" class="form-control" id="exchange" name="exchange" placeholder="Enter Exchange" style="border-radius: 5px;" required>
+            </div>
+            <div class="form-group">
+              <label for="amount">Amount:</label>
+              <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Amount">
+          </div>
+            <button type="submit" class="btn btn-outline-dark mt-4" style="border-radius: 5px; margin-bottom: 30px;">Submit request</button>
+        </form>
+      <% } else { %>
+        <div class="alert alert-warning mt-4" role="alert">
+          You must have $100 or more in your account to create a withdraw request
+        </div>
+      <% } %>
+     
+  </div>
+</div>
+
+<div style="position: fixed;bottom: 0; width: 100%;">
+  <%- include('./partials/footer'); %>
+</div>  
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
