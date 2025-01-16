@@ -494,6 +494,16 @@ router.get('/level/down/:id',isAdmin,checkAuth, async function (req, res, next) 
   }
 });
 
+router.get('/tasks/hardrefresh/',isAdmin,checkAuth, async function(req, res, next) {
+ 
+  try {
+    await clearAllTasks();
+    await generateTasksForUsers();
+    res.status(400).json({ error: 'Operation completed' });
+  } catch (err) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 ////////////////////////////////////
 
 
@@ -685,11 +695,33 @@ router.get('/claim-task/:id',checkAuth, async (req, res) => {
   const claimed = await claimTask(user, taskId);
 
   if (claimed) {
-    //res.status(200).json({ message: 'Task claimed successfully.' });
-    res.redirect("https://tii.la/6RKLUS6Cz6")
+    const urls = [
+      "https://tpi.li/pPgd2",
+      "https://oii.la/FK7S",
+      "https://shrinkforearn.xyz/Lpb2XJy",
+      "https://linkx.in/is9cPe",
+      "https://kyshort.xyz/go/O4x8"
+    ];
+    const randomUrl = urls[Math.floor(Math.random() * urls.length)];
+  
+    // Respond with HTML and JavaScript to open the URL in a new tab
+    res.send(`
+      <html>
+        <head>
+          <script>
+            window.open("${randomUrl}", "_blank");
+            window.location.href = "/";
+          </script>
+        </head>
+        <body>
+          Redirecting...
+        </body>
+      </html>
+    `);
   } else {
     res.status(400).json({ message: 'Task is no longer claimable.' });
   }
+  
 });
 
 
