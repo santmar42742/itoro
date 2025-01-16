@@ -528,12 +528,23 @@ async function generateTasksForUsers() {
 
           const count = user.tasks.length;
           console.log("Task number"+count)
+          const urls = [
+            "https://tpi.li/pPgd2",
+            "https://oii.la/FK7S",
+            "https://shrinkforearn.xyz/Lpb2XJy",
+            "https://linkx.in/is9cPe",
+            "https://kyshort.xyz/go/O4x8"
+          ];
+          
+          // Generate a new task with a random link
           const task = new Task({
             title: count + 1,
             level: user.level,
             user: user,
             expiresAt: calculateExpirationTime(),
+            link: urls[Math.floor(Math.random() * urls.length)] // Randomly assign one of the links
           });
+          
 
           await task.save();
           user.tasks.push(task._id);
@@ -693,35 +704,13 @@ router.get('/claim-task/:id',checkAuth, async (req, res) => {
   const taskId = req.params.id;
   const user = req.session.user; // Assuming you have user authentication
   const claimed = await claimTask(user, taskId);
-
+  const task = await Task.findById(taskId);
   if (claimed) {
-    const urls = [
-      "https://tpi.li/pPgd2",
-      "https://oii.la/FK7S",
-      "https://shrinkforearn.xyz/Lpb2XJy",
-      "https://linkx.in/is9cPe",
-      "https://kyshort.xyz/go/O4x8"
-    ];
-    const randomUrl = urls[Math.floor(Math.random() * urls.length)];
-  
-    // Respond with HTML and JavaScript to open the URL in a new tab
-    res.send(`
-      <html>
-        <head>
-          <script>
-            window.open("${randomUrl}", "_blank");
-            window.location.href = "/";
-          </script>
-        </head>
-        <body>
-          Redirecting...
-        </body>
-      </html>
-    `);
+    //res.status(200).json({ message: 'Task claimed successfully.' });
+    res.redirect(task.link);
   } else {
     res.status(400).json({ message: 'Task is no longer claimable.' });
   }
-  
 });
 
 

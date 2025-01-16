@@ -19,6 +19,10 @@ const taskSchema = new mongoose.Schema({
   },
   claimedAt: Date,
   expiresAt: Date,
+  link: {
+    type: String, // String type for storing URLs
+    required: false, // Optional, but you can set it to true if necessary
+  },
 });
 
 module.exports = new mongoose.model('Task', taskSchema);
