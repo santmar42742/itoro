@@ -76,6 +76,49 @@ router.get('/profile/settings',checkAuth, async(req, res, nxet) => {
   res.render('users/profileSettings',{user})
 });
 
+router.post('/trade', async (req, res) => {
+  console.log("backend hitted")
+  try {
+      const { userId, coinCode, amount } = req.body;
+
+      // Validate input
+      if (!userId || !coinCode || !amount || amount <= 0) {
+          return res.status(400).json({ success: false, message: "Invalid trade details" });
+      }
+
+      // Find user
+      const user = await User.findById(userId);
+      if (!user) {
+          return res.status(404).json({ success: false, message: "User not found" });
+      }
+
+      // Check if user has sufficient balance
+      if (user.account.balance < amount) {
+          return res.status(400).json({ success: false, message: "Insufficient balance" });
+      }
+
+      // Deduct balance
+      user.account.balance -= amount;
+
+      // Create trade object
+      const newTrade = {
+          amount,
+          coinCode,
+          net:5,
+          timestamp: new Date()
+      };
+
+      // Save trade in user document
+      user.trade.push(newTrade);
+      await user.save();
+
+      return res.status(200).json({ success: true, message: "Trade successful", trade: newTrade });
+  } catch (error) {
+      console.error("Trade Error:", error);
+      return res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
 router.post('/profile/settings/changepassword',checkAuth, async (req, res, next) => {
   const userId = req.session.user._id; // Get the user's ID from the session
 

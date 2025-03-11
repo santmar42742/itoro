@@ -1,56 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#000" />
+    <meta name="msapplication-navbutton-color" content="#000" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="theme-color" content="#000">
-    <meta name="msapplication-navbutton-color" content="#000">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/img/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/img/favicon/safari-pinned-tab.svg"
+      color="#4a6fd3"
+    />
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#4a6fd3" />
+    <meta
+      name="msapplication-config"
+      content="/img/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#4a6fd3" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/img/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#4a6fd3">
-    <link rel="shortcut icon" href="/img/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#4a6fd3">
-    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#4a6fd3">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-    <meta name="csrf-param" content="_csrf-frontend">
-<meta name="csrf-token" content="EXfF0UjGnd9P1mbQ7owY3pyKjNdSECv7VBuQnCffy2ohQKqFerzztT7iM6KcyE6Q7tm_nDVWU8o-afrQFu35EA==">
-    <title>Earning money on the Internet with withdrawal of money 2024 | iToro</title>
-    <meta name="description" content="iToro">
-<link href="/landing/assets/8db62c8a/css/main.css" rel="stylesheet">
-<link href="/landing/assets/8db62c8a/css/other.css" rel="stylesheet">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+    />
+    <meta name="csrf-param" content="_csrf-frontend" />
+    <meta
+      name="csrf-token"
+      content="EXfF0UjGnd9P1mbQ7owY3pyKjNdSECv7VBuQnCffy2ohQKqFerzztT7iM6KcyE6Q7tm_nDVWU8o-afrQFu35EA=="
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>
+      Earning money on the Internet with withdrawal of money 2024 | iToro
+    </title>
+    <meta name="description" content="iToro" />
+    <link href="/landing/assets/8db62c8a/css/main.css" rel="stylesheet" />
+    <link href="/landing/assets/8db62c8a/css/other.css" rel="stylesheet" />
 
-<div class="body-wrapper">
+    <style>
+      body {
+        font-family: "Museo Sans Cyrl";
+      }
+      .historyGraph {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 15rem 5rem;
+        gap: 2rem;
+        box-sizing: border-box;
+        padding-bottom: 5rem;
+      }
+      .graph-section {
+        position: relative;
+        /* background: black; */
+        background-image: linear-gradient(to top, #fff 0, #beb7fa 100%);
+      }
+      #coinButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+      }
+      .coin-button {
+        width: 110px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 5px;
+        padding: 12px 20px;
+        margin: 5px;
+        min-width: 8rem;
+        border: 1px solid #ccc;
+        background-color: #f8f9fa;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+        box-sizing: border-box;
+        box-shadow: rgba(50, 50, 93, 0.25) -4px 6px 0px 0px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px !important;
+      }
 
-    <header>
-    <div class="header-content">
-        <div class="header">
+      .coin-button > img {
+        width: auto;
+        height: 20px;
+      }
+      .coin-button.active,
+      .coin-button:hover {
+        background-color: #7892ff;
+        color: white;
+        border-color: #7892ff;
+      }
+      .historyChartCanva {
+        width: 70vw;
+        border-radius: 2rem;
+        padding: 1rem;
+        /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; */
+        box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+      }
+      @media only screen and (max-width: 768px) {
+        .historyGraph {
+          flex-direction: column;
+          padding: 15rem 0.5rem 0.5rem 0.5rem;
+        }
+        #coinButtons {
+          flex-direction: row;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .historyChartCanva {
+          width: 100%;
+        }
+      }
+
+      .coin_rate_negative {
+        color: rgb(251, 137, 137);
+        font-size: 13px;
+        font-family: "Museo Sans Cyrl 500";
+      }
+      .coin_rate_positive {
+        color: rgb(67, 163, 134);
+        font-size: 13px;
+        font-family: "Museo Sans Cyrl 500";
+      }
+
+      .coin-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+      }
+
+      .header {
+        justify-content: space-between;
+      }
+      .menu {
+        gap: 20px;
+        justify-content: center;
+      }
+      .start-section {
+        margin-top: 12rem;
+      }
+      .why {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      .why .start-item {
+        background: #eef4ff;
+        border-radius: 20px;
+        padding: 20px;
+        height: 250px;
+      }
+      .start-item-info {
+        gap: 15px;
+      }
+      .why-btn {
+        margin-top: 20px;
+      }
+      .why-btn a {
+        width: fit-content;
+        font-size: 16px;
+        border-radius: 10px;
+        padding: 15px 10px;
+        letter-spacing: 0px;
+        background: #7186ea;
+      }
+      .trade {
+        align-items: center;
+        gap: 30px;
+      }
+      .low-section {
+        background-image: linear-gradient(to top, #363958 0, #3b4076 100%);
+        margin-bottom: 0rem;
+      }
+      .low-item {
+        width: calc((100% / 2) - 1.5rem);
+      }
+      .low-item > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+        gap: 0px;
+      }
+      .low-item > div > i {
+        font-size: 4rem;
+        margin-bottom: 15px;
+      }
+      .low-item > div > div {
+        color: #fff;
+        text-align: center;
+      }
+      .low-section h2 {
+        margin-bottom: 2.5rem;
+        color: #fff;
+        font-family: "Museo Sans Cyrl 900";
+        font-size: 4.8rem;
+        font-weight: 400;
+        line-height: 6rem;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      .low-section h6 {
+        margin-bottom: 2.5rem;
+        color: #ffffffa1;
+        font-family: "Museo Sans Cyrl 700";
+        font-size: 2.8rem;
+        font-weight: 400;
+        line-height: 6rem;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      .stats{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        background: #C0B9FA;
+        padding: 14px 10px;
+      }
+
+      .stat-item{
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        flex-direction: row;
+        gap: 5px;
+      }
+      .stat-item p{
+        color: #000;
+        font-family: "Museo Sans Cyrl 700";
+        font-size: 1.7rem;
+        font-weight: 400;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      .stat-item span{
+        color: #1945ff;
+        font-family: "Museo Sans Cyrl 700";
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      .stat-item div{
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        flex-direction: row;
+        gap: 5px;
+      }
+      .stat-item div i{
+        font-size: 2rem;
+      }
+      @media only screen and (max-width: 600px) {
+        .why {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .why .start-item {
+          height: fit-content;
+        }
+        .why-btn a {
+          width: fit-content;
+          font-size: 10px;
+          border-radius: 10px;
+          padding: 10px;
+          letter-spacing: 0px;
+          background: #7186ea;
+        }
+        .low-item {
+          margin-top: 3rem;
+        }
+        .coin-button {
+          width: 75px;
+          padding: 6px 9px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body-wrapper">
+      <header>
+        <div class="header-content">
+          <div class="header">
             <div class="header-logo logo">
-                <a href="/">
-                    <strong>i</strong>Toro
-                </a>
+              <a href="/"> <strong>i</strong>Toro </a>
             </div>
             <div class="header-menu-wrapper">
-                <ul class="header-menu menu">
-                    <li>
-                        <a href="#start" class="scroll">How to get started</a>
-                    </li>
-                    <li>
-                        <a href="#excellence" class="scroll">Advantages</a>
-                    </li>
-                    <li>
-                        <a href="#partner" class="scroll">Top</a>
-                    </li>
-                    <li>
+              <ul class="header-menu menu">
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="#start" class="scroll">How to get started</a>
+                </li>
+                <li>
+                  <a href="#excellence" class="scroll">Advantages</a>
+                </li>
+                <li>
+                  <a href="#partner" class="scroll">Top</a>
+                </li>
+                <li>
+                  <a href="/earn-by-tasks">Earn By Tasks</a>
+                </li>
+                <!-- <li>
                         <a href="#gain" class="scroll">Making money on the internet</a>
                     </li>
                     <li>
@@ -58,27 +342,247 @@
                     </li>
                     <li>
                         <a href="#service" class="scroll">Services and prices</a>
-                    </li>
-                </ul>
+                    </li> -->
+              </ul>
             </div>
             <div class="header-btn-wrapper">
-                <a href="/login" class="header-btn btn-head">
-                    <span class="btn-head__icon"></span>
-                    <span class="btn-head__title">Login</span>
-                </a>
+              <a href="/login" class="header-btn btn-head">
+                <span class="btn-head__icon"></span>
+                <span class="btn-head__title">Login</span>
+              </a>
             </div>
             <div class="menu-bar-wrap">
-                <div class="menu-bar active back">
-                    <span></span>
-                    <span></span>
-                </div>
+              <div class="menu-bar active back">
+                <span></span>
+                <span></span>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</header>
+      </header>
 
-<div class="body-content">
-    <section id="home" class="section home-section">
+      <div class="body-content">
+        <section class="section graph-section">
+          <div class="historyGraph" data-aos="fade-right">
+            <div id="coinButtons">
+              <% coins.forEach(coin => { let delta = ((coin.delta.day - 1) *
+              100).toFixed(2); %>
+              <div class="coin-btn">
+                <button
+                  class="coin-button <%= coin.code === selectedCoin ? 'active' : '' %>"
+                  data-coin="<%= coin.code %>"
+                >
+                  <%= coin.code %>
+                  <img src="<%= coin.png64 %>" alt="" />
+                </button>
+                <span
+                  class="<%= delta < 0 ? 'coin_rate_negative' : 'coin_rate_positive' %>"
+                  ><%= delta %></span
+                >
+              </div>
+              <% }); %>
+            </div>
+            <div class="historyChartCanva" data-aos="fade-left">
+              <canvas id="cryptoChart"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="">
+            <div class="stats">
+              <div class="stat-item">
+                <p>Cryptos :</p>
+                <span>12.44M</span>
+              </div>
+              <div class="stat-item">
+                <p>Exchanges :</p>
+                <span>800</span>
+              </div>
+              <div class="stat-item">
+                <p>Market Cap :</p>
+                <span>$2.67T</span>
+                <div class="" style="color: red;">
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  <span style="color: red;">4.85%</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <p>24h Vol :</p>
+                <span>$140.71B</span>
+                <div class="" style="color: #74ff00;">
+                  <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  <span style="color: #74ff00;">92.10%</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <p>Dominance :</p>
+                <span>BTC : 60.8% ETH : 8.7%</span>
+              </div>
+              <div class="stat-item">
+                <p>ETH Gas :</p>
+                <span>15.31Gwei</span>
+              </div>
+              <div class="stat-item">
+                <p>Fear/Greed :</p>
+                <span>17/100</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="excellence" class="section excellence-section">
+          <img
+            data-src="/img/excellence-left.png"
+            class="lazy excellence-abs excellence-abs--left"
+            alt=""
+          />
+          <img
+            data-src="/img/img-abs-small.png"
+            class="lazy excellence-abs excellence-abs--right"
+            alt=""
+          />
+
+          <div class="excellence-bullet excellence-bullet--left">
+            <img src="/img/bullet1.svg" alt="" />
+          </div>
+          <div class="excellence-bullet excellence-bullet--right">
+            <img src="/img/bullet1.svg" alt="" />
+          </div>
+
+          <div
+            class="excellence-animation-wrapper excellence-animation-wrapper--left"
+          >
+            <img src="/img/like.svg" class="excellence-animation-item" alt="" />
+            <img
+              src="/img/hashtag.svg"
+              class="excellence-animation-item"
+              alt=""
+            />
+            <img
+              src="/img/message.svg"
+              class="excellence-animation-item"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="excellence-animation-wrapper excellence-animation-wrapper--right"
+          >
+            <img src="/img/like.svg" class="excellence-animation-item" alt="" />
+            <img src="/img/like.svg" class="excellence-animation-item" alt="" />
+            <img src="/img/like.svg" class="excellence-animation-item" alt="" />
+          </div>
+
+          <div class="animation-wrapper animation-wrapper--right"></div>
+
+          <div class="excellence-wrap">
+            <div class="container">
+              <h2 class="section__title section__title--white">Advantages</h2>
+              <div class="excellence">
+                <div class="excellence-item" data-aos="fade-down">
+                  <div class="excellence-item-img-wrapper">
+                    <img
+                      data-src="/img/ex1.svg"
+                      alt="Trade Crypto Instantly"
+                      class="lazy excellence-item-img"
+                    />
+                  </div>
+                  <div class="excellence-item__title">
+                    Trade Crypto Instantly
+                  </div>
+                  <div class="excellence-item__text">
+                    Buy and sell cryptocurrencies with ease. Our platform offers
+                    real-time trading, competitive fees, and a seamless
+                    experience. Start trading today and take advantage of the
+                    market movements!
+                  </div>
+                </div>
+                <div class="excellence-item" data-aos="fade-down">
+                  <div class="excellence-item-img-wrapper">
+                    <img
+                      data-src="/img/ex2.svg"
+                      alt="Secure & Fast Transactions"
+                      class="lazy excellence-item-img"
+                    />
+                  </div>
+                  <div class="excellence-item__title">
+                    Secure & Fast Transactions
+                  </div>
+                  <div class="excellence-item__text">
+                    Your security is our priority. Trade with confidence using
+                    our secure platform, protected by advanced encryption and
+                    multi-layer authentication. Enjoy fast deposits and
+                    withdrawals anytime.
+                  </div>
+                </div>
+                <div class="excellence-item" data-aos="fade-down">
+                  <div class="excellence-item-img-wrapper">
+                    <img
+                      data-src="/img/ex3.svg"
+                      alt="Real-Time Market Insights"
+                      class="lazy excellence-item-img"
+                    />
+                  </div>
+                  <div class="excellence-item__title">
+                    Real-Time Market Insights
+                  </div>
+                  <div class="excellence-item__text">
+                    Stay ahead of the game with live price updates, advanced
+                    charts, and expert analysis. Get the tools you need to make
+                    informed trading decisions and maximize your profits.
+                  </div>
+                </div>
+
+                <div class="excellence-item" data-aos="fade-down">
+                  <div class="excellence-item-img-wrapper">
+                    <img
+                      data-src="/img/ex4.svg"
+                      alt="Rating system"
+                      class="lazy excellence-item-img"
+                    />
+                  </div>
+                  <div class="excellence-item__title">Credit system</div>
+                  <div class="excellence-item__text">
+                    Increase your credit score for special bonuses
+                  </div>
+                </div>
+                <div class="excellence-item" data-aos="fade-down">
+                  <div class="excellence-item-img-wrapper">
+                    <img
+                      data-src="/img/ex5.svg"
+                      alt="Distribution of executions by time"
+                      class="lazy excellence-item-img"
+                    />
+                  </div>
+                  <div class="excellence-item__title">
+                    Distribution of executions by time
+                  </div>
+                  <div class="excellence-item__text">
+                    Create convenient schedules for completing your tasks
+                  </div>
+                </div>
+                <div class="excellence-item" data-aos="fade-down">
+                  <div class="excellence-item-img-wrapper">
+                    <img
+                      data-src="/img/ex6.svg"
+                      alt="Favorable prices and bonuses"
+                      class="lazy excellence-item-img"
+                    />
+                  </div>
+                  <div class="excellence-item__title">
+                    Favorable income and bonuses
+                  </div>
+                  <div class="excellence-item__text">
+                    Increase task limit when you top up your account and earn
+                    more money
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- <section id="home" class="section home-section">
         <div class="home-bullet home-bullet--left">
             <img src="/img/bullet1.svg" alt="">
         </div>
@@ -160,13 +664,13 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!---->
-    <section id="start" class="section start-section">
-        <div class="start-wrap">
+    </section> -->
+        <!---->
+        <section id="start" class="section start-section">
+          <div class="start-wrap">
             <div class="container">
-                <div class="edge-content-wrapper">
-                    <div class="edge-content active" data-home="1">
+              <div class="edge-content-wrapper">
+                <!-- <div class="edge-content active" data-home="1">
                         <div class="edge" data-aos="fade-up">
                             <div class="edge-item">
                                 <div class="edge-item__logo">
@@ -190,8 +694,8 @@
                                 <div class="edge-item__title">Active tasks</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="edge-content" data-home="2">
+                    </div> -->
+                <!-- <div class="edge-content" data-home="2">
                         <div class="edge">
                             <div class="edge-item">
                                 <div class="edge-item__logo">
@@ -215,221 +719,316 @@
                                 <div class="edge-item__title">Completed tasks</div>
                             </div>
                         </div>
+                    </div> -->
+              </div>
+
+              <h2 class="section__title">Trade In Crypto</h2>
+              <div class="start">
+                <span class="start-bullet start-bullet--left">
+                  <img data-src="/img/bullet2.svg" class="lazy" alt="" />
+                </span>
+                <span class="start-bullet start-bullet--right">
+                  <img data-src="/img/bullet2.svg" class="lazy" alt="" />
+                </span>
+
+                <div class="start-item" data-aos="fade-down" data-aos-delay="0">
+                  <div class="start-item-info">
+                    <div class="start-item-info__title">
+                      Buy & Sell in Seconds
                     </div>
+                    <div class="start-item-info__text">
+                      Trade cryptocurrencies effortlessly with our
+                      lightning-fast platform. Whether you're a beginner or an
+                      experienced trader, our intuitive interface makes buying
+                      and selling crypto easier than ever. Execute trades
+                      instantly, without delays or complicated processes, and
+                      enjoy a smooth trading experience.
+                    </div>
+                  </div>
                 </div>
-
-                <h2 class="section__title">Where to begin</h2>
-                <div class="start">
-                          <span class="start-bullet start-bullet--left">
-                              <img data-src="/img/bullet2.svg" class="lazy" alt="">
-                          </span>
-                    <span class="start-bullet start-bullet--right">
-                            <img data-src="/img/bullet2.svg" class="lazy" alt="">
-                        </span>
-
-                    <div class="start-item" data-aos="fade-down" data-aos-delay="0">
-                        <div class="start-item-img-border">
-                            <div class="start-item-img-wrapper">
-                                <img data-src="/img/s1.svg" alt="" class="lazy start-item-img">
-                            </div>
-                        </div>
-
-                        <div class="start-item-info">
-                            <div class="start-item-info-head">
-                                <div class="start-item-info-counter-wrapper">
-                                    <div class="start-item-info-counter"></div>
-                                </div>
-                                <img src="/img/arrow.png" alt="" class="start-item-arrow">
-                            </div>
-
-
-                            <div class="start-item-info__title">
-                                Complete tasks
-                            </div>
-                            <div class="start-item-info__text">
-                                Complete interesting tasks in your free time to earn money
-                            </div>
-                        </div>
+                <div
+                  class="start-item"
+                  data-aos="fade-down"
+                  data-aos-delay="200"
+                >
+                  <div class="start-item-info">
+                    <div class="start-item-info__title">
+                      Bitcoin, Ethereum & More
                     </div>
-                    <div class="start-item" data-aos="fade-down" data-aos-delay="200">
-                        <div class="start-item-img-border">
-                            <div class="start-item-img-wrapper">
-                                <img data-src="/img/s2.svg" alt="Зарабатывайте деньги" class="lazy start-item-img">
-                            </div>
-                        </div>
-
-                        <div class="start-item-info">
-                            <div class="start-item-info-head">
-                                <div class="start-item-info-counter-wrapper">
-                                    <div class="start-item-info-counter"></div>
-                                </div>
-                                <img src="/img/arrow.png" alt="" class="start-item-arrow">
-                            </div>
-
-
-                            <div class="start-item-info__title">
-                                Earn money
-                            </div>
-                            <div class="start-item-info__text">
-                                Receive honestly earned money immediately after checking the task
-                            </div>
-                        </div>
+                    <div class="start-item-info__text">
+                      Gain access to a wide range of the most popular
+                      cryptocurrencies, including Bitcoin (BTC), Ethereum (ETH),
+                      Binance Coin (BNB), and more. Diversify your portfolio
+                      with high-potential digital assets and explore emerging
+                      tokens. Stay ahead of the market by trading top-performing
+                      coins with real-time updates.
                     </div>
-                    <div class="start-border"></div>
-                    <div class="start-item" data-aos="fade-down" data-aos-delay="400">
-                        <div class="start-item-img-border">
-                            <div class="start-item-img-wrapper">
-                                <img data-src="/img/s3.svg" alt="Привлекайте друзей" class="lazy start-item-img">
-                            </div>
-                        </div>
-
-                        <div class="start-item-info">
-                            <div class="start-item-info-head">
-                                <div class="start-item-info-counter-wrapper">
-                                    <div class="start-item-info-counter"></div>
-                                </div>
-                                <img src="/img/arrow.png" alt="" class="start-item-arrow">
-                            </div>
-
-
-                            <div class="start-item-info__title">
-                                Refer friends
-                            </div>
-                            <div class="start-item-info__text">
-                                Earn score to increase VIP level from each completion of your referral
-                            </div>
-                        </div>
-                    </div>
-                    <div class="start-item" data-aos="fade-down" data-aos-delay="600">
-                        <div class="start-item-img-border">
-                            <div class="start-item-img-wrapper">
-                                <img data-src="/img/s4.svg" alt="Get the result" class="lazy start-item-img">
-                            </div>
-                        </div>
-
-                        <div class="start-item-info">
-                            <div class="start-item-info-head">
-                                <div class="start-item-info-counter-wrapper">
-                                    <div class="start-item-info-counter"></div>
-                                </div>
-                                <img src="/img/arrow.png" alt="" class="start-item-arrow">
-                            </div>
-
-
-                            <div class="start-item-info__title">
-                                Get the result
-                            </div>
-                            <div class="start-item-info__text">
-                                Thousands of dollars in your account for completing easy tasks
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+                <div class="start-border"></div>
+                <div
+                  class="start-item"
+                  data-aos="fade-down"
+                  data-aos-delay="400"
+                >
+                  <div class="start-item-info">
+                    <div class="start-item-info__title">
+                      Your Assets, Fully Protected
+                    </div>
+                    <div class="start-item-info__text">
+                      We prioritize your security with advanced encryption,
+                      multi-factor authentication, and cold storage for funds.
+                      Our platform is designed to safeguard your transactions
+                      and personal data, ensuring a secure trading environment.
+                      Trade with confidence, knowing that your crypto assets are
+                      protected against fraud and cyber threats.
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="start-item"
+                  data-aos="fade-down"
+                  data-aos-delay="600"
+                >
+                  <div class="start-item-info">
+                    <div class="start-item-info__title">
+                      Make Smart Decisions
+                    </div>
+                    <div class="start-item-info__text">
+                      Stay informed with real-time price charts, market trends,
+                      and expert insights. Our advanced analytics tools help you
+                      analyze market movements and spot trading opportunities
+                      before they happen. Whether you're a day trader or a
+                      long-term investor, access the data you need to make
+                      informed decisions and maximize your profits.
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </section>
-    <!--Преимущества-->
-    <section id="excellence" class="section excellence-section">
-        <img data-src="/img/excellence-left.png" class="lazy excellence-abs excellence-abs--left" alt="">
-        <img data-src="/img/img-abs-small.png" class="lazy excellence-abs excellence-abs--right" alt="">
+          </div>
+        </section>
 
-        <div class="excellence-bullet excellence-bullet--left">
-            <img src="/img/bullet1.svg" alt="">
-        </div>
-        <div class="excellence-bullet excellence-bullet--right">
-            <img src="/img/bullet1.svg" alt="">
-        </div>
+        <section id="registration" class="section registration-section">
+          <div class="registration-bullet registration-bullet--left">
+            <img data-src="/img/bullet1.svg" class="lazy" alt="" />
+          </div>
 
-        <div class="excellence-animation-wrapper excellence-animation-wrapper--left">
-            <img src="/img/like.svg" class=" excellence-animation-item" alt="">
-            <img src="/img/hashtag.svg" class=" excellence-animation-item" alt="">
-            <img src="/img/message.svg" class=" excellence-animation-item" alt="">
-        </div>
-
-        <div class="excellence-animation-wrapper excellence-animation-wrapper--right">
-            <img src="/img/like.svg" class="excellence-animation-item" alt="">
-            <img src="/img/like.svg" class="excellence-animation-item" alt="">
-            <img src="/img/like.svg" class="excellence-animation-item" alt="">
-        </div>
-
-        <div class="animation-wrapper animation-wrapper--right"></div>
-
-        <div class="excellence-wrap">
+          <div class="registration-wrap">
             <div class="container">
-                <h2 class="section__title section__title--white">Advantages</h2>
-                <div class="excellence">
-                    <div class="excellence-item" data-aos="fade-down">
-                        <div class="excellence-item-img-wrapper">
-                            <img data-src="/img/ex1.svg"  alt="Earning money from simple tasks" class="lazy excellence-item-img">
-                        </div>
-                        <div class="excellence-item__title">
-                            Earning money from simple tasks
-                        </div>
-                        <div class="excellence-item__text">
-                            You can earn money each month by performing simple tasks that do not require serious skills
-                        </div>
-                    </div>
-                    <div class="excellence-item" data-aos="fade-down">
-                        <div class="excellence-item-img-wrapper">
-                            <img data-src="/img/ex2.svg" alt="Fast and convenient withdrawal" class="lazy excellence-item-img">
-                        </div>
-                        <div class="excellence-item__title">
-                            Fast and convenient withdrawal
-                        </div>
-                        <div class="excellence-item__text">
-                            Complete 40 tasks daily and earn money
-                        </div>
-                    </div>
-                    <div class="excellence-item" data-aos="fade-down">
-                        <div class="excellence-item-img-wrapper">
-                            <img data-src="/img/ex3.svg" alt="Referral program" class="lazy excellence-item-img">
-                        </div>
-                        <div class="excellence-item__title">
-                            Referral program
-                        </div>
-                        <div class="excellence-item__text">
-                            Don't want to complete tasks? Just attract people increase vip level and get bonuses
-                        </div>
-                    </div>
-                    <div class="excellence-item" data-aos="fade-down">
-                        <div class="excellence-item-img-wrapper">
-                            <img data-src="/img/ex4.svg" alt="Rating system" class="lazy excellence-item-img">
-                        </div>
-                        <div class="excellence-item__title">
-                            Credit system
-                        </div>
-                        <div class="excellence-item__text">
-                            Increase your credit score for special bonuses
-                        </div>
-                    </div>
-                    <div class="excellence-item" data-aos="fade-down">
-                        <div class="excellence-item-img-wrapper">
-                            <img data-src="/img/ex5.svg" alt="Distribution of executions by time" class="lazy excellence-item-img">
-                        </div>
-                        <div class="excellence-item__title">
-                            Distribution of executions by time
-                        </div>
-                        <div class="excellence-item__text">
-                            Create convenient schedules for completing your tasks
-                        </div>
-                    </div>
-                    <div class="excellence-item" data-aos="fade-down">
-                        <div class="excellence-item-img-wrapper">
-                            <img data-src="/img/ex6.svg" alt="Favorable prices and bonuses" class="lazy excellence-item-img">
-                        </div>
-                        <div class="excellence-item__title">
-                            Favorable income and bonuses
-                        </div>
-                        <div class="excellence-item__text">
-                            Increase task limit when you top up your account and earn more money
-                        </div>
-                    </div>
+              <div class="registration trade">
+                <div class="registration-img-wrapper" data-aos="fade-left">
+                  <img
+                    data-src="/img/crypto-currency.jpg"
+                    alt=""
+                    class="lazy registration-img"
+                  />
                 </div>
+                <div class="registration-info" data-aos="fade-right">
+                  <span
+                    style="font-size: 2em; font-family: 'Museo Sans Cyrl 300'"
+                    >Crypto platform</span
+                  >
+                  <h2 class="registration-info__title">
+                    Trade crypto in minutes
+                  </h2>
+                  <div class="registration-info__subtitle">
+                    <span
+                      style="
+                        font-size: 3rem;
+                        font-family: 'Museo Sans Cyrl 100';
+                      "
+                      >1.</span
+                    >
+
+                    Create your free iToro account <br />
+
+                    <span
+                      style="
+                        font-size: 3rem;
+                        font-family: 'Museo Sans Cyrl 100';
+                      "
+                      >2.</span
+                    >
+
+                    Connect your funding method <br />
+
+                    <span
+                      style="
+                        font-size: 3rem;
+                        font-family: 'Museo Sans Cyrl 100';
+                      "
+                      >3.</span
+                    >
+
+                    Trade 374 cryptocurrencies
+                  </div>
+                  <div class="registration-btn-wrapper">
+                    <a href="/login" class="btn registration-btn">Trade now</a>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </section>
-    <!--Партнеры и исполнители-->
-    <section id="partner" class="section partner-section">
+          </div>
+        </section>
+
+        <section id="why" class="section start-section">
+          <div class="start-wrap">
+            <div class="container">
+              <div class="edge-content-wrapper">
+                <!-- <div class="edge-content active" data-home="1">
+                        <div class="edge" data-aos="fade-up">
+                            <div class="edge-item">
+                                <div class="edge-item__logo">
+                                    <img src="/img/e1.svg" alt="Paid money">
+                                </div>
+                                <div class="edge-item__value">16 026</div>
+                                <div class="edge-item__title">Paid money</div>
+                            </div>
+                            <div class="edge-item">
+                                <div class="edge-item__logo">
+                                    <img src="/img/e2.svg" alt="Customers">
+                                </div>
+                                <div class="edge-item__value">5 144</div>
+                                <div class="edge-item__title">Users</div>
+                            </div>
+                            <div class="edge-item">
+                                <div class="edge-item__logo">
+                                    <img src="/img/e3.svg" alt="Active tasks">
+                                </div>
+                                <div class="edge-item__value">4 161</div>
+                                <div class="edge-item__title">Active tasks</div>
+                            </div>
+                        </div>
+                    </div> -->
+                <!-- <div class="edge-content" data-home="2">
+                        <div class="edge">
+                            <div class="edge-item">
+                                <div class="edge-item__logo">
+                                    <img src="/img/e4.svg" alt="Performers">
+                                </div>
+                                <div class="edge-item__value">3 079</div>
+                                <div class="edge-item__title">Performers</div>
+                            </div>
+                            <div class="edge-item">
+                                <div class="edge-item__logo">
+                                    <img src="/img/e5.svg" alt="Executions per day">
+                                </div>
+                                <div class="edge-item__value">5 607</div>
+                                <div class="edge-item__title">Executions per day</div>
+                            </div>
+                            <div class="edge-item">
+                                <div class="edge-item__logo">
+                                    <img src="/img/e6.svg" alt="Completed tasks">
+                                </div>
+                                <div class="edge-item__value">11 299 5</div>
+                                <div class="edge-item__title">Completed tasks</div>
+                            </div>
+                        </div>
+                    </div> -->
+              </div>
+
+              <h2 class="section__title">Why iToro</h2>
+              <div class="why">
+                <div class="start-item" data-aos="fade-down" data-aos-delay="0">
+                  <div class="start-item-info">
+                    <div class="start-item-info__title">Simplicity</div>
+                    <div class="start-item-info__text">
+                      Kraken makes it easy to buy and trade crypto, from your
+                      desktop or via our mobile apps.
+                    </div>
+                    <div class="why-btn">
+                      <a href="/login" class="btn registration-btn"
+                        >Register now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="start-item"
+                  data-aos="fade-down"
+                  data-aos-delay="200"
+                >
+                  <div class="start-item-info">
+                    <div class="start-item-info__title">Education</div>
+                    <div class="start-item-info__text">
+                      Crypto shouldn’t be cryptic – learn about blockchain,
+                      trading, crypto and NFTs.
+                    </div>
+                    <div class="why-btn">
+                      <a href="/login" class="btn registration-btn">Earn now</a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="start-item"
+                  data-aos="fade-down"
+                  data-aos-delay="400"
+                >
+                  <div class="start-item-info">
+                    <div class="start-item-info__title">Service</div>
+                    <div class="start-item-info__text">
+                      Find answers instantly, or get help from our award-winning
+                      support team.
+                    </div>
+                    <div class="why-btn">
+                      <a href="/login" class="btn registration-btn"
+                        >Trade now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="why" class="section low-section start-section">
+          <div class="start-wrap">
+            <div class="container">
+              <h2 class="">
+                The world premier <br />
+                crypto trading platform
+              </h2>
+              <h6 class="">Buy Bitcoin, Ethereum and 400+ more</h6>
+              <div class="why">
+                <div class="low-item" data-aos="fade-down" data-aos-delay="0">
+                  <div class="start-item-info">
+                    <i class="fa fa-exchange"></i>
+                    <div class="start-item-info__title">Low Spreads</div>
+                    <div class="start-item-info__text">
+                      Lower your average cost per trade.
+                    </div>
+                  </div>
+                </div>
+                <div class="low-item" data-aos="fade-down" data-aos-delay="0">
+                  <div class="start-item-info">
+                    <i class="fa fa-database"></i>
+                    <div class="start-item-info__title">
+                      Deep liquidity across markets
+                    </div>
+                    <div class="start-item-info__text">
+                      Easily trade large volumes at stable prices.
+                    </div>
+                  </div>
+                </div>
+                <div class="low-item" data-aos="fade-down" data-aos-delay="0">
+                  <div class="start-item-info">
+                    <i class="fa fa-chevron-up"></i>
+                    <div class="start-item-info__title">High rate limits</div>
+                    <div class="start-item-info__text">
+                      Trade crypto fast with our robust, low latency API.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--Преимущества-->
+
+        <!--Партнеры и исполнители-->
+        <!-- <section id="partner" class="section partner-section">
         <div class="partner-wrap">
             <h2 class="section__title">Top performers</h2>
             <div class="container">
@@ -800,9 +1399,9 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!--Заработок в Интернете-->
-    <section id="gain" class="section gain-section">
+    </section> -->
+        <!--Заработок в Интернете-->
+        <!-- <section id="gain" class="section gain-section">
         <img data-src="/img/img-abs-big.png" class="lazy gain-abs gain-abs--left" alt="">
         <div class="gain-wrap">
             <div class="container">
@@ -1026,81 +1625,174 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section id="registration" class="section registration-section">
-        <img data-src="/img/img-abs-small.png" class="lazy registration-abs registration-abs--left" alt="">
-        <img data-src="/img/registr-abs-img.png" class="lazy registration-abs registration-abs--right" alt="">
+    </section> -->
+        <section id="registration" class="section registration-section">
+          <img
+            data-src="/img/img-abs-small.png"
+            class="lazy registration-abs registration-abs--left"
+            alt=""
+          />
+          <img
+            data-src="/img/registr-abs-img.png"
+            class="lazy registration-abs registration-abs--right"
+            alt=""
+          />
 
-        <div class="registration-bullet registration-bullet--left">
-            <img data-src="/img/bullet1.svg" class="lazy" alt="">
-        </div>
+          <div class="registration-bullet registration-bullet--left">
+            <img data-src="/img/bullet1.svg" class="lazy" alt="" />
+          </div>
 
-        <div class="registration-wrap">
+          <div class="registration-wrap">
             <div class="container">
-                <div class="registration">
-                    <div class="registration-info" data-aos="fade-right">
-                        <h2 class="registration-info__title">
-                            Do you want to get proven profits for your investments?
-                        </h2>
-                        <div class="registration-info__subtitle">
-                            Or just make money online with small investment?
-                        </div>
-                        <div class="registration-btn-wrapper">
-                            <a href="/login" class="btn registration-btn">Register now</a>
-                        </div>
-                    </div>
-                    <div class="registration-img-wrapper" data-aos="fade-left">
-                        <img data-src="/img/registr-main.svg" alt="" class="lazy registration-img">
-                    </div>
+              <div class="registration">
+                <div class="registration-info" data-aos="fade-right">
+                  <h2 class="registration-info__title">Start Trading Today!</h2>
+                  <div class="registration-info__subtitle">
+                    Buy, sell, and trade crypto with confidence. Sign up now and
+                    take control of your financial future!
+                  </div>
+                  <div class="registration-btn-wrapper">
+                    <a href="/login" class="btn registration-btn"
+                      >Register now</a
+                    >
+                  </div>
                 </div>
+                <div class="registration-img-wrapper" data-aos="fade-left">
+                  <img
+                    data-src="/img/registr-main.svg"
+                    alt=""
+                    class="lazy registration-img"
+                  />
+                </div>
+              </div>
             </div>
-        </div>
-    </section>
-</div>
+          </div>
+        </section>
+      </div>
 
-<footer>
-    <div class="container">
-        <div class="footer">
+      <footer>
+        <div class="container">
+          <div class="footer">
             <div class="footer-logo logo">
-                <a href="#home" class="scroll">
-                    <strong>i</strong>Toro
-                </a>
+              <a href="#home" class="scroll"> <strong>i</strong>Toro </a>
             </div>
             <div class="footer-menu-wrapper">
-                <ul class="footer-menu">
-                    <li>
-                        <a href="#start" class="scroll">How to get started</a>
-                    </li>
-                    <li>
-                        <a href="#excellence" class="scroll">Advantages</a>
-                    </li>
-                    <li>
-                        <a href="#partner" class="scroll">Top</a>
-                    </li>
-                    <li>
-                        <a href="#gain" class="scroll">Earn online</a>
-                    </li>
-                    <li>
-                        <a href="#program" class="scroll">Affiliate program</a>
-                    </li>
-                    <li>
-                        <a href="#service" class="scroll">Services and prices</a>
-                    </li>
-                    <li>
-                        <a href="/login">Sign up</a>
-                    </li>
-                   
-                </ul>
+              <ul class="footer-menu">
+                <li>
+                  <a href="#start" class="scroll">How to get started</a>
+                </li>
+                <li>
+                  <a href="#excellence" class="scroll">Advantages</a>
+                </li>
+                <li>
+                  <a href="#partner" class="scroll">Top</a>
+                </li>
+                <li>
+                  <a href="#gain" class="scroll">Earn online</a>
+                </li>
+                <li>
+                  <a href="#program" class="scroll">Affiliate program</a>
+                </li>
+                <li>
+                  <a href="#service" class="scroll">Services and prices</a>
+                </li>
+                <li>
+                  <a href="/login">Sign up</a>
+                </li>
+              </ul>
             </div>
-        </div>
+          </div>
 
-        <div class="footer-copyright">
-            All rights reserved © 2024 iToro
+          <div class="footer-copyright">All rights reserved © 2024 iToro</div>
         </div>
+      </footer>
     </div>
-</footer>
+    <script src="/landing/assets/8db62c8a/js/bundle.js"></script>
 
-</div>
-<script src="/landing/assets/8db62c8a/js/bundle.js"></script>
-</body>
+    <script>
+      document.querySelectorAll('.coin-button').forEach(button => {
+          button.addEventListener('click', function() {
+              document.querySelectorAll('.coin-button').forEach(btn => btn.classList.remove('active'));
+              this.classList.add('active');
+              const selectedCoin = this.getAttribute('data-coin');
+              console.log("Selected Coin:", selectedCoin);
+              window.location.href = "/?coin=" + selectedCoin;
+          });
+      });
+      const historyDatas = <%- historyData %>;
+      function splitLast3HoursData(data) {
+          const threeHoursAgo = Date.now() - 3 * 60 * 60 * 1000; // Timestamp 3 hours ago
+          const pastData = data.filter(entry => entry.date < threeHoursAgo); // Older than 3 hours
+          const recentData = data.filter(entry => entry.date >= threeHoursAgo); // Last 3 hours
+
+          return { pastData, recentData };
+      }
+
+      let { pastData: filteredHistory, recentData: upcomingData } = splitLast3HoursData(historyDatas);
+
+      console.log(filteredHistory, "Initial Data (Displaying)");
+      console.log(upcomingData, "Upcoming Data (Last 3 Hours)");
+      let labels = filteredHistory.map(entry => new Date(entry.date).toLocaleTimeString());
+      let prices = filteredHistory.map(entry => entry.rate);
+      const ctx = document.getElementById('cryptoChart').getContext('2d');
+      const chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: labels,
+              datasets: [{
+                  label: '<%= selectedCoin %> Price (USD)',
+                  data: prices,
+                  borderColor: '#7892ff',
+                  fill: true,
+                  backgroundColor: 'rgba(120, 146, 255, 0.2)',
+                  pointRadius: 2
+              }]
+          },
+          options: {
+              plugins: {
+                  legend: {
+                      display: false
+                  }
+              },
+              responsive: true,
+              scales: {
+                  x: {
+                      grid: { display: false },
+                      title: { display: true, text: "Time" }
+                  },
+                  y: {
+                      grid: { display: false },
+                      title: { display: true, text: "USD" }
+                  }
+              }
+          }
+      });
+
+      //Function to add new data every 30 seconds
+      let index = 0;
+      function addNewData() {
+              const newData = upcomingData[index];
+              filteredHistory.push(newData);
+              chart.data.labels.push(new Date(newData.date).toLocaleTimeString());
+              chart.data.datasets[0].data.push(newData.rate);
+              if (filteredHistory.length > 100) { // You can adjust the max points to keep in the graph
+                  filteredHistory.shift();
+                  chart.data.labels.shift();
+                  chart.data.datasets[0].data.shift();
+              }
+              chart.update();
+
+              index++;
+
+      }
+      let interval = setInterval(() => {
+          if (index < upcomingData.length) {
+              addNewData();
+          } else {
+              console.log("No more data to add. Stopping updates.");
+              clearInterval(interval); // Stop the interval
+          }
+      }, 3000);
+    </script>
+  </body>
 </html>

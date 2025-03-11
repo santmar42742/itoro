@@ -174,7 +174,56 @@
         margin-right: 20px;
         margin-left: 50px;
     }
-
+    .coins_container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap:2rem;
+        border-radius: 0;
+        border: none;
+        margin-bottom: 2rem;
+    }
+    .coin_card{
+        width: 15rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(to bottom, #446ad3, #e46be8); 
+        border-radius: 1rem ;
+        padding: 0.5rem 0 .5rem 0;
+        }
+  
+    .coin_card>h4{
+        /* background-color: grey; */
+        color:white;
+        width: 100%;
+        text-align: center;
+        border-radius: 1rem 1rem 0% 0% ;
+        border-bottom:1px solid rgb(176, 177, 239);
+        padding: 0.2rem 0;
+    }
+    .coin_card>div>p{
+        color:white;
+        margin: 0.2rem;
+    }
+  .coin_rate_change{
+    color:white;
+    padding: 0.2rem .5rem;
+    text-align: center;
+  }
+  .coin_rate_negative{
+    background-color: rgb(251, 137, 137);
+  }
+  .coin_rate_positive{
+    background-color: rgb(67, 163, 134);
+  }
+  .coin_card>a{
+        color:white;
+        background-color: #446ad3;
+        padding: .5rem 1rem;
+    }
 </style>
 </head>
 <body>
@@ -261,7 +310,49 @@
         </div>
     </div>
 
-
+    <div class="coins_container">
+      <% data.forEach(coin => { %>
+          <div class="coin_card">
+              <h4 class="title"><%= coin.code %></h4>
+              <div>
+                  <p class="price"><%= coin.rate.toFixed(2) %> USD</p>
+                  <p class="coin_rate_change <%= ((coin.delta.day -1) * 100) < 0 ? 'coin_rate_negative' : 'coin_rate_positive' %>">
+                      <%= ((coin.delta.day -1) * 100).toFixed(2) %>% <span style="font-size: 12px;"> 24h %</span>
+                  </p>
+              </div>
+             
+              <a href="/trade/<%= coin.code %>" class="trade-btn">Trade Now</a>
+          </div>
+      <% }) %>
+  </div>
+  <!-- Bootstrap Toast for Low Balance -->
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div id="errorToast" class="toast text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">Balance too low to trade!</div>
+          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const balance = <%= user.account.balance %>; // Fetch balance from EJS
+        const tradeButtons = document.querySelectorAll(".trade-btn");
+    
+        tradeButtons.forEach(button => {
+          button.addEventListener("click", function (event) {
+            if (balance <= 0) {
+              event.preventDefault(); // Stop navigation
+              var toastEl = document.getElementById('errorToast');
+              var toast = new bootstrap.Toast(toastEl);
+              toast.show();
+            }
+          });
+        });
+      });
+    </script>
+  
 <!--
     <div class="container text-center mt-0 badge-container">
 
@@ -377,11 +468,9 @@
          
       </ul></div>
   </div>
-    
   </section>
 
-  
-  <%- include('./partials/footer'); %>
+<%- include('./partials/footer'); %>
 
  
   <script>

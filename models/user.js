@@ -1,4 +1,10 @@
 const mongoose = require('mongoose');
+const tradeSchema = new mongoose.Schema({
+  amount: { type: Number }, // Corrected "tye" → "type"
+  coinCode: { type: String }, // Corrected "tye" → "type"
+  net: {  type: Number },
+  timestamp: { type: Date, default: Date.now } // Added default timestamp
+});
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -73,7 +79,7 @@ const userSchema = new mongoose.Schema({
         default: 0, // Default to 0
       },
     },
-
+    trade: [tradeSchema],
     tasks: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Task'
