@@ -178,6 +178,21 @@
         padding: 20px;
         height: 250px;
       }
+      .trade-in > div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
+      }
+      .start-img{
+        width: 30rem;
+        height: auto;
+      }
+      .start-img img{
+        width: 100%;
+        height: auto;
+      }
       .start-item-info {
         gap: 15px;
       }
@@ -305,6 +320,9 @@
         .coin-button {
           width: 75px;
           padding: 6px 9px;
+        }
+        .trade-in > div{
+          flex-direction: column;
         }
       }
     </style>
@@ -478,7 +496,7 @@
 
           <div class="excellence-wrap">
             <div class="container">
-              <h2 class="section__title section__title--white">Advantages</h2>
+              <h2 class="section__title section__title--white">Positive Features</h2>
               <div class="excellence">
                 <div class="excellence-item" data-aos="fade-down">
                   <div class="excellence-item-img-wrapper">
@@ -669,58 +687,6 @@
         <section id="start" class="section start-section">
           <div class="start-wrap">
             <div class="container">
-              <div class="edge-content-wrapper">
-                <!-- <div class="edge-content active" data-home="1">
-                        <div class="edge" data-aos="fade-up">
-                            <div class="edge-item">
-                                <div class="edge-item__logo">
-                                    <img src="/img/e1.svg" alt="Paid money">
-                                </div>
-                                <div class="edge-item__value">16 026</div>
-                                <div class="edge-item__title">Paid money</div>
-                            </div>
-                            <div class="edge-item">
-                                <div class="edge-item__logo">
-                                    <img src="/img/e2.svg" alt="Customers">
-                                </div>
-                                <div class="edge-item__value">5 144</div>
-                                <div class="edge-item__title">Users</div>
-                            </div>
-                            <div class="edge-item">
-                                <div class="edge-item__logo">
-                                    <img src="/img/e3.svg" alt="Active tasks">
-                                </div>
-                                <div class="edge-item__value">4 161</div>
-                                <div class="edge-item__title">Active tasks</div>
-                            </div>
-                        </div>
-                    </div> -->
-                <!-- <div class="edge-content" data-home="2">
-                        <div class="edge">
-                            <div class="edge-item">
-                                <div class="edge-item__logo">
-                                    <img src="/img/e4.svg" alt="Performers">
-                                </div>
-                                <div class="edge-item__value">3 079</div>
-                                <div class="edge-item__title">Performers</div>
-                            </div>
-                            <div class="edge-item">
-                                <div class="edge-item__logo">
-                                    <img src="/img/e5.svg" alt="Executions per day">
-                                </div>
-                                <div class="edge-item__value">5 607</div>
-                                <div class="edge-item__title">Executions per day</div>
-                            </div>
-                            <div class="edge-item">
-                                <div class="edge-item__logo">
-                                    <img src="/img/e6.svg" alt="Completed tasks">
-                                </div>
-                                <div class="edge-item__value">11 299 5</div>
-                                <div class="edge-item__title">Completed tasks</div>
-                            </div>
-                        </div>
-                    </div> -->
-              </div>
 
               <h2 class="section__title">Trade In Crypto</h2>
               <div class="start">
@@ -731,8 +697,10 @@
                   <img data-src="/img/bullet2.svg" class="lazy" alt="" />
                 </span>
 
-                <div class="start-item" data-aos="fade-down" data-aos-delay="0">
+                <div class="start-item trade-in" data-aos="fade-down" data-aos-delay="0">
                   <div class="start-item-info">
+                    <div class="start-img"><img src="/img/buy-sell.jpg" alt=""></div>
+                    <div style="width: fit-content;">
                     <div class="start-item-info__title">
                       Buy & Sell in Seconds
                     </div>
@@ -745,13 +713,16 @@
                       enjoy a smooth trading experience.
                     </div>
                   </div>
+                  </div>
                 </div>
                 <div
-                  class="start-item"
+                  class="start-item trade-in"
                   data-aos="fade-down"
                   data-aos-delay="200"
                 >
                   <div class="start-item-info">
+                    <div class="start-img"><img src="/img/bitcoin.jpg" alt=""></div>
+                    <div style="width: fit-content;">
                     <div class="start-item-info__title">
                       Bitcoin, Ethereum & More
                     </div>
@@ -764,14 +735,17 @@
                       coins with real-time updates.
                     </div>
                   </div>
+                  </div>
                 </div>
                 <div class="start-border"></div>
                 <div
-                  class="start-item"
+                  class="start-item trade-in"
                   data-aos="fade-down"
                   data-aos-delay="400"
                 >
                   <div class="start-item-info">
+                    <div class="start-img"><img src="/img/assets.jpg" alt=""></div>
+                    <div style="width: fit-content;">
                     <div class="start-item-info__title">
                       Your Assets, Fully Protected
                     </div>
@@ -783,14 +757,17 @@
                       Trade with confidence, knowing that your crypto assets are
                       protected against fraud and cyber threats.
                     </div>
+                    </div>
                   </div>
                 </div>
                 <div
-                  class="start-item"
+                  class="start-item trade-in"
                   data-aos="fade-down"
                   data-aos-delay="600"
                 >
                   <div class="start-item-info">
+                    <div class="start-img"><img src="/img/smart-d.png" alt=""></div>
+                    <div style="width: fit-content;">
                     <div class="start-item-info__title">
                       Make Smart Decisions
                     </div>
@@ -801,6 +778,7 @@
                       before they happen. Whether you're a day trader or a
                       long-term investor, access the data you need to make
                       informed decisions and maximize your profits.
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -1682,7 +1660,7 @@
                   <a href="#start" class="scroll">How to get started</a>
                 </li>
                 <li>
-                  <a href="#excellence" class="scroll">Advantages</a>
+                  <a href="#excellence" class="scroll">Positive Features</a>
                 </li>
                 <li>
                   <a href="#partner" class="scroll">Top</a>
