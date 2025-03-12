@@ -104,7 +104,7 @@ router.post('/trade', async (req, res) => {
       const newTrade = {
           amount,
           coinCode,
-          net:5,
+          net: Number(amount) * 0.05,
           timestamp: new Date()
       };
 
