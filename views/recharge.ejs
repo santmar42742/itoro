@@ -97,8 +97,11 @@
         <h2 class="mt-2">Wallet Address</h2>
         <button class="btn btn-primary" style="min-width: 175px;" onclick="displayImage() ">Wallet address</button>
         <div id="imagePopup" onclick="closeImagePopup()">
-          <div id="popupContent">
+          <div id="popupContent" style="background:#fff;padding:16px;border-radius:12px;color:#000;" onclick="event.stopPropagation()">
               <img id="myImage" src="/images/trc.jpeg" alt="Displayed Image">
+              <p class="mt-2 mb-1 fw-bold">Network: TRX (TRC20)</p>
+              <p id="walletAddress" style="word-break:break-all;user-select:all;">TYxmDRDdazMereHPzSv6YTXBSKDmyvGCCG</p>
+              <button type="button" class="btn btn-sm btn-dark" onclick="navigator.clipboard.writeText(document.getElementById('walletAddress').innerText); this.innerText='Copied!'">Copy address</button>
           </div>
       </div>
     </div>
